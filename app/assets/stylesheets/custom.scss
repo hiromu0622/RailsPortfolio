@@ -1,0 +1,86 @@
+h1, h2 {
+  font-weight: 100;
+}
+
+.text-black {
+  color: rgb(255, 255, 255);
+}
+
+.btn {
+  position: relative;
+  background-color: #f7d034;
+  border-radius: 4px;
+  color: #fff;
+  line-height: 52px;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: 0 3px 0 #f7ba59;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+
+  &:hover {
+    background-color:  #f7d034;
+    box-shadow: 0 3px 0 #a18a23;
+  }
+}
+.top-hero-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('japan-map2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-color: rgb(230, 102, 17);
+  }
+
+  .top-hero-container {
+    padding-top: 80px;
+    h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin-bottom: 60px;
+    }
+  }
+  .form-control {
+    height: 45px;
+  }
+  .users-new-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('rogin-back.png');
+    background-size: 100% 100%;
+    background-color:rgba(255,255,255,0.2);
+    background-blend-mode:lighten;
+    .users-new-container {
+        padding-top: 120px;
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+    }
+  }
+  .alert {
+    margin-bottom: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+  }
+  .navbar-transparent {
+    margin-bottom: 0px;
+    background-color: rgba(0,0,0,0.5);
+    a {
+      color: #fff !important;
+    }
+
+    .navbar-brand {
+      padding: 0px;
+      margin-top: 15px;
+    }
+
+    img {
+      height: 40px;
+    }
+  }
