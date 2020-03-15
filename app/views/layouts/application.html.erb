@@ -61,18 +61,29 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="#">
-				タイトル
+        <%= link_to root_path do %>
+        <span><%= image_tag "icons/logo.png" %></span>
+        <% end %>
 			</a>
 		</div>
-		
-		<div class="collapse navbar-collapse" id="navbarEexample5">
-			<ul class="nav navbar-nav">
-				<li><a href="#">メニューＡ</a></li>
-				<li class="active"><a href="#">メニューＢ</a></li>
-				<li><a href="#">メニューＣ</a></li>
-			</ul>
-			<p class="navbar-text">ようこそ ゲスト さん。</p>
+		<% if logged_in? %>
+      <div class="collapse navbar-collapse" id="navbarEexample5">
+        <ul class="nav navbar-nav">
+          <li><a href="#">メニューＡ</a></li>
+          <li class="active"><a href="#">メニューＢ</a></li>
+          <li><%= link_to topics_path do %>投稿一覧<% end %></li>
+          <% current_user = User.find_by(id: session[:user_id]) %>
+          <p class="navbar-text"><%= current_user.name %>ようこそ ログイン済 さん</p>
+          <li>
+          <%= link_to logout_path, method: :delete do %>
+            <%= image_tag "icons/logout.png" %>
+          <% end %>
+          </li>
+    <% else %>
+			  <p class="navbar-text">ようこそ ゲスト さん</p>
+      </ul>
 		</div>
+    <% end %>
 	</div>
 </nav>
 

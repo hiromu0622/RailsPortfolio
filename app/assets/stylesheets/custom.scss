@@ -22,6 +22,27 @@ h1, h2 {
     box-shadow: 0 3px 0 #a18a23;
   }
 }
+.navbar-transparent {
+
+  background-color: rgba(201, 201, 201, 0.5);
+  a {
+    color: #fff !important;
+  }
+  z-index: 10000;
+
+  .navbar-brand {
+    padding: 5px;
+    
+  }
+  .navbar-nav {
+    margin: 10px;
+  }
+  img {
+    height: 50px;
+    margin: 5px;
+  }
+}
+
 .top-hero-wrapper {
     width: 100vw;
     height: 100vh;
@@ -32,10 +53,12 @@ h1, h2 {
     background-size: 100% 100%;
     background-color: rgb(230, 102, 17);
     position: fixed;
+    position: absolute;
+    top: 0;
   }
 
   .top-hero-container {
-    padding-top: 80px;
+    padding-top: 100px;
     h1 {
       font-size: 56px;
       margin-bottom: 20px;
@@ -53,13 +76,14 @@ h1, h2 {
     height: 100vh;
     background-image: url('rogin-back.png');
     background-size: 100% 100%;
-    background-color:rgba(255,255,255,0.2);
     background-blend-mode:lighten;
+    position: absolute;
+    top: 0;
     .users-new-container {
         padding-top: 120px;
 
         .form-group {
-          margin-bottom: 20px;
+          margin-bottom: 30px;
         }
     }
   }
@@ -67,24 +91,9 @@ h1, h2 {
     margin-bottom: 0px;
     position: fixed;
     width: 100%;
-    z-index: 10000;
+    z-index: 100000;
   }
-  .navbar-transparent {
-    margin-bottom: 0px;
-    background-color: rgba(0,0,0,0.5);
-    a {
-      color: #fff !important;
-    }
 
-    .navbar-brand {
-      padding: 0px;
-      margin-top: 15px;
-    }
-
-    img {
-      height: 40px;
-    }
-  }
   .btn-black {
     color: #565656;
     border: 1px solid #565656;
@@ -134,8 +143,3 @@ h1, h2 {
       }
     }
   }
-  .navbar-color {
-
-    
-  }
-  
