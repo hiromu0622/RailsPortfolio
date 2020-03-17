@@ -24,22 +24,31 @@ h1, h2 {
 }
 .navbar-transparent {
 
-  background-color: rgba(201, 201, 201, 0.5);
+  background-color: rgba(22, 22, 22, 0.5);
   a {
     color: #fff !important;
   }
   z-index: 10000;
-
+  
   .navbar-brand {
     padding: 5px;
     
   }
   .navbar-nav {
     margin: 10px;
+    &:hover {
+      background-color:  #f7d034;
+      box-shadow: 0 3px 0 #a18a23;
+    } 
   }
+
   img {
     height: 50px;
     margin: 5px;
+    &:hover {
+      background-color:  #f7d034;
+      box-shadow: 0 3px 0 #a18a23;
+    } 
   }
 }
 
@@ -108,7 +117,7 @@ h1, h2 {
   }
   
   .topic-new-wrapper {
-    padding-top: 120px;
+    padding-top: 20px;
   }
   .topic-index-wrapper {
     padding-top: 70px;
@@ -135,11 +144,15 @@ h1, h2 {
         margin-bottom: 20px;
         width: 100%;
       }
-  
+      //いいねがない場合のハートアイコンの色
       .topic-index-icon {
         width: 35px;
         height: 30px;
         margin-left: 20px;
+      }
+      //いいねがされた場合のハートアイコンの色
+      .color {
+        filter: invert(72%) sepia(26%) saturate(6428%) hue-rotate(1deg) brightness(105%) contrast(102%);
       }
     }
   }
