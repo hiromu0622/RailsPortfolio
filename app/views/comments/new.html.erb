@@ -1,0 +1,18 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+    <%= form_for @comment do |f|  %>
+      <div class="row">
+        <div class="col-md-6 offset-3">
+        <%= image_tag @topic.image.url, :size =>'300x300'  %>
+          <div class="topic-index-single">
+            <div class="form-group">
+            <%= f.hidden_field :topic_id, value: params[:topic_id] %>
+              <%= f.text_area :comment %>
+              <%= f.submit 'コメント投稿'%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

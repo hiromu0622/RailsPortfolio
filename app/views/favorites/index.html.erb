@@ -9,7 +9,9 @@
             </h2>
             <%= topic.created_at %>
             <%= image_tag topic.image.url %>
+            <%= link_to comments_new_path(topic_id: topic.id) do %>
             <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+            <% end %>
             <p class="topic-text">
               <%= topic.description %>
             </p>
