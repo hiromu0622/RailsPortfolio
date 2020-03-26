@@ -28,15 +28,16 @@
         <ul class="navbar-nav nav-item btn-block ">
           <% if logged_in? %>
             <%= link_to users_mypage_path do %><li class="btn nav-btn ">マイページ</li><% end %>
-            <%= link_to new_topic_path do %><li class="btn nav-btn">自分の投稿</li><% end %>
+            <%= link_to topics_usertopics_path do %><li class="btn nav-btn">自分の投稿</li><% end %>
             <%= link_to favorites_index_path do %><li class='btn nav-btn'>いいねした投稿</li><% end %>
             <%= link_to new_topic_path do %><li class='btn nav-btn'>新規投稿</li><% end %>
             <%= link_to topics_path do %><li class='btn nav-btn'>みんなの投稿一覧</li><% end %>
-            <p class="btn navbar-text"><%= current_user.name %>さん ようこそ</p>
-            <li class='btn nav-btn'>
+            <p class=" navbar-text"><%= current_user.name %>さん ようこそ</p>
+            <li class='btn nav-btn fukidashi-icon'>
               <%= link_to logout_path, method: :delete do %>
                 <%= image_tag "icons/logout.png" %>
               <% end %>
+              <span class="fukidashi">ログアウト</span>
             </li>
           <% else %>
             <p class="navbar-text">ようこそ ゲスト さん</p>

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get 'comments/new', to: 'comments#new'
   post '/comments', to: 'comments#create'
 
+  get 'topics/usertopics', to: 'topics#usertopics'
+  get 'topics/detail', to: 'topics#detail'
+
   resources :users
   resources :topics
 

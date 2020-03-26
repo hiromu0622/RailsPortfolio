@@ -29,7 +29,7 @@ h1, h2 {
 
 .navbar-transparent {
 
-  background-color: rgba(22, 22, 22, 0.5);
+  background-color: rgba(255, 206, 73, 0.753);
   a {
     color: #fff !important;
   }
@@ -52,7 +52,7 @@ h1, h2 {
   }
   .nav-btn {
     position: relative;
-    background-color: #6bf734;
+    background-color: #ff943c;
     border-radius: 4px;
     color: #fff;
     line-height: 52px;
@@ -171,23 +171,49 @@ h1, h2 {
     }
   }
 .fukidashi {
-  display: none;
+  position   : absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  // padding: 2px;                         /* テキストの前後の余白 */
+  background-color: rgba(255, 202, 87, 0.836);       /* 背景色（透明度） */
+  // width:100%;                          /* 吹き出し全体の幅 */
+  border-radius: 6px;
+  top: -30px;
+  left: 20px;
+  font-size:70%;
 }
-.fukidasi:after {
-  display: inline-block;
-  top: -75px;
-  left: -50px;
-  border-top: 12px solid rgba(102, 102, 255, 0.50);    /* 吹き出し口の高さ・色 */
-  border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
-  border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
-  bottom: -12px;                          /* 吹き出し口の位置調整 */
-  left : 5%;                              /* 吹き出し口の横位置 */
-  content: "";                       /* コンテンツの挿入 */
-  position: absolute;    
-}
-.comments-icon {
+.fukidashi-icon {
   position: relative;
+  cursor: pointer;
+  display: inline-block
 }
-.comments-icon:hover.fukidasi {
+.fukidashi-icon:hover .fukidashi {
   display: inline;
+}
+
+.hoge {
+  padding-top: 200px;
+
+}
+.mypage-edit {
+  position   : relative;                /* 指定した分だけ相対的に移動 */
+  cursor: pointer;
+  display: inline-block;
+  background-color: rgba(255, 87, 87, 0.836);
+}
+.mypage-edit:hover .mypage {
+  display: inline;                /* インライン要素として表示 */
+}
+.mypage {
+  position: absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  // padding: 2px;                         /* テキストの前後の余白 */
+  background-color: rgba(255, 202, 87, 0.836);       /* 背景色（透明度） */
+  width: 100px;                          /* 吹き出し全体の幅 */
+  top: -25px;
+  left: 0px;
+  font-size: 80%;                       /* 文字サイズ */
+}
+.comments-new-wrapper {
+  padding-top: 130px;
+  background-color: #fafafa;
 }

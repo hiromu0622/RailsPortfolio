@@ -16,6 +16,19 @@ class TopicsController < ApplicationController
       render :new
     end
   end
+  def destroy
+    @topic = Topic.find_by(id: params[:id])
+    @topic.destroy
+    redirect_to topics_path, danger: 'トピックを削除しました'
+  end
+
+  def usertopics
+    @topics = Topic.all.includes(:favorite_users)
+  end
+
+  def detail
+    @topic = Topic.find_by(id: params[:topic_id])
+  end
 
 
   private

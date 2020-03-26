@@ -9,11 +9,18 @@ class CommentsController < ApplicationController
         @comment.user_id = current_user.id
         @comment.topic_id = params[:comment][:topic_id]
         @comment.comment = params[:comment][:comment]
-       if @comment.save
-        redirect_to topics_new_path, success: 'コメントしました'
-       else
-        redirect_to topics_new_path, danger: 'コメントできませんでした'
-       end
-
+        if @comment.save
+            redirect_to topics_path, success: 'コメントしました'
+        else
+            redirect_to topics_path, danger: 'コメントできませんでした'
+        end
     end
+
+    def destroy
+        @comment = Comment.find_by(params[:id])
+        if @comment.destroy
+            redirect_to topics_path, success: 'コメントを削除しました'
+        end
+    end
+
 end
