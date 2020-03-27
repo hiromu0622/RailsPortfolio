@@ -11,7 +11,7 @@
 
           <div class="form-group">
             <%= f.label :訪れた県名 %>
-            <%= f.text_field :prefecture, class: 'form-control' %>
+            <%= f.select :prefecture, options_for_select(@topic.prefectures), {:include_blank => '県名を選択してください'}, class: 'form-control' %>
           </div>
 
           <div class="form-group">

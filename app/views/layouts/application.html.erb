@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -34,7 +35,7 @@
             <%= link_to topics_path do %><li class='btn nav-btn'>みんなの投稿一覧</li><% end %>
             <p class=" navbar-text"><%= current_user.name %>さん ようこそ</p>
             <li class='btn nav-btn fukidashi-icon'>
-              <%= link_to logout_path, method: :delete do %>
+              <%= link_to logout_path, method: :delete, data: {confirm: "本当にログアウトしますか？"} do %>
                 <%= image_tag "icons/logout.png" %>
               <% end %>
               <span class="fukidashi">ログアウト</span>
