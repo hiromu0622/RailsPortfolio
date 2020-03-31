@@ -1,8 +1,31 @@
-<div class="col-md-6 offset-3 hoge">
-eeeee
-<p>っっっっs</p>
-    <div class="mypage-edit">アイウエオ
-      <span class="mypage">カキクケコ</span>
-    </div>
+
+  <%# <div class="col-md-6 offset-3 hoge"> %>
+  <%# <div class="mypage-edit-hero-wrapper"> %>
+    <%# <%= image_tag "icons/profile-icon.png" %>
+    <%# <p align="center">っっっっs</p> %>
+      <%# <div class="mypage-edit",>アイウエオ %>
+        <%# <span class="mypage">カキクケコ</span> %>
+      <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
+<div class="test"></div>
+<p align="center"><%= image_tag "icons/profile-icon.png" %></p>
 
 <div>
+<%= form_for :user, url: users_mypage_path do |f| %>
+<p align="center">プロフィール写真の変更</p>
+<p align="center"><%= f.label :profile %></p>
+<p align="center"><%= f.text_area :profile, placeholder: "ここにあなたのプロフィールを書いてください" %></p>
+<p align="center"><%= f.label :ユーザー名の変更 %></p>
+<p align="center"><%= f.text_field :name, placeholder: "変更したいユーザーネームを入れてください" %></p>
+<p align="center"><%= f.label :メールアドレスの変更 %></p>
+<p align="center"><%= f.text_field :email, placeholder: "変更したいメールアドレスを入れてください" %></p>
+<p align="center"><%= f.label :パスワードの変更 %></p>
+<p align="center"><%= f.text_field :password, placeholder: "変更したいパスワードを入れてください" %></p>
+
+<%= f.submit "マイページの更新", class: 'btn-block btn-white'%>
+
+<p align="center"><%= image_tag "icons/profile-icon.png" %></p>
+<span align="center"><%= image_tag "icons/profile-icon.png" %></span>
+<% end %>
+</div>

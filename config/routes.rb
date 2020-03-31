@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 
   get 'users/mypage', to: 'users#mypage'
+  post 'users/mypage', to: 'users#mypage_edit_update'
   get 'users/mypage_edit', to: 'users#mypage_edit'
 
   get 'favorites/index'

@@ -194,6 +194,10 @@ h1, h2 {
   padding-top: 200px;
 
 }
+.mypage-edit-hero-wrapper {
+  display: inline-block;
+  margin: 10px auto;
+}
 .mypage-edit {
   position   : relative;                /* 指定した分だけ相対的に移動 */
   cursor: pointer;
@@ -216,4 +220,12 @@ h1, h2 {
 .comments-new-wrapper {
   padding-top: 130px;
   background-color: #fafafa;
+}
+.mypage-edit-link {
+  padding-top: 100px;
+}
+.test {
+  padding-top: 100px;
+  background-color: green;
+  // display: block;
 }

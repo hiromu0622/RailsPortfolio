@@ -14,11 +14,25 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    @user = User.find_by(id: current_user.id)
   end
   
   def mypage_edit
+    @user = User.new
   end
 
+  def mypage_edit_update
+    @user= User.find_by(id: current_user.id)
+    @user.profile = params[:user][:profile]
+    @user.email = params[:user][:email]
+    if @user.save
+    redirect_to users_mypage_path
+    else
+      flash.now[:danger] = "更新に失敗しました"
+      # redirect_to users_mypage_path
+      render :mypage_edit
+    end
+  end
 
   private
   def user_params
