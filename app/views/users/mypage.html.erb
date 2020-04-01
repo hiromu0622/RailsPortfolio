@@ -8,9 +8,12 @@
         <p>設定したプロフィールが表示されるよ</p>
         <P>自分のことを書いてPRしてみよう</p>
         <% else %>
-            <%= @user.profile %>
+            <p>プロフィール</p>
+            <p><%= @user.profile %></p>
         <% end %>
-        <%= @user.name %>name
-        <%= @user.email %>email
+        <p>ユーザーネーム</p>
+        <%= @user.name %>
+        <p>メールアドレス</p>
+        <%= @user.email %>
     </div>
 </div>

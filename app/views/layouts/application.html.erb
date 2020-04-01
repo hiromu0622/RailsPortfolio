@@ -17,13 +17,14 @@
   <% end %>
 <!-- 以下ナビゲーションバー編集　-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-transparent ">
+      <%= link_to root_path do %>
+        
       <li class="navbar-brand nav-btn fukidashi-icon">
-        <%= link_to root_path do %>
           <span><%= image_tag "icons/logo.png" %></span>
           <span class="fukidashi">トップ画面</span>
-        <% end %>
+        
       </li>
-      
+      <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
