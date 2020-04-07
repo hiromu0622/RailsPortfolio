@@ -15,10 +15,14 @@ class UsersController < ApplicationController
 
   def mypage
     @user = User.find_by(id: current_user.id)
+    @userprefectures =  UserPrefecture.new
+    @userprefectures.user_id = current_user.id
+    @usertopics = Topic.where(user_id: current_user.id)
+    # @userprefectures.prefecture = @usertopics.prefecture
   end
-  
+
   def mypage_edit
-    @user = User.new
+    @user = User.find_by(id: current_user.id)
   end
   def mypage_edit_update
     @user= User.find_by(id: current_user.id)

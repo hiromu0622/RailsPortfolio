@@ -9,6 +9,7 @@ def validate_name
   # self.password = password_was unless password.present?
   # self.password_confirmation = password_confirmation_was unless password_confirmation.present?
 end
+  mount_uploader :profile_photo, ImageUploader
 
   validates :name, presence: true, on: :create
   validates :email, presence: true, on: :create
@@ -21,4 +22,5 @@ end
   has_many :favorites, dependent: :destroy
   has_many :favorite_topics, through: :favorites, source: 'topic'
   has_many :comments, dependent: :destroy
+  has_many :user_prefectures
 end

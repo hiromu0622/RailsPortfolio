@@ -4,25 +4,21 @@
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-
   <body>
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
-  <% end %>
-<!-- 以下ナビゲーションバー編集　-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-transparent ">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    <!-- 以下ナビゲーションバー編集　-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-transparent site-header">
       <%= link_to root_path do %>
-        
       <li class="navbar-brand nav-btn fukidashi-icon">
           <span><%= image_tag "icons/logo.png" %></span>
           <span class="fukidashi">トップ画面</span>
-        
       </li>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +32,12 @@
             <%= link_to favorites_index_path do %><li class='btn nav-btn'>いいねした投稿</li><% end %>
             <%= link_to new_topic_path do %><li class='btn nav-btn'>新規投稿</li><% end %>
             <%= link_to topics_path do %><li class='btn nav-btn'>みんなの投稿一覧</li><% end %>
-            <p class=" navbar-text"><%= current_user.name %>さん ようこそ</p>
+            <p class=" navbar-text">
+            <% if  current_user.profile_photo == nil %>
+            <% else %>
+            <%= image_tag current_user.profile_photo.url :size =>'40x40', class:'profile_photo' %>
+            <% end %>
+            <%= current_user.name %>さん ようこそ</p>
             <li class='btn nav-btn fukidashi-icon'>
               <%= link_to logout_path, method: :delete, data: {confirm: "本当にログアウトしますか？"} do %>
                 <%= image_tag "icons/logout.png" %>
@@ -49,51 +50,24 @@
         </ul>
       </div>
     </nav>
-<!-- 以下過去ナビゲーションバー編集　--
-<nav class="navbar navbar-default　navbar-expand  navbar-transparent">
-	<div class="container-fluid container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample5">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">
-        <%= link_to root_path do %>
-        <span><%= image_tag "icons/logo.png" %></span>
-        <% end %>
-			</a>
-		</div>
-		<% if logged_in? %>
-      <div class="collapse navbar-collapse" id="navbarEexample5">
-        <ul class="nav navbar-nav">
-          <li class="active"><%= link_to users_mypage_path do %>マイページ<% end %></li>
-　　　　　　<li><%= link_to new_topic_path do %>自分の投稿<% end %></li>
-          <li><%= link_to favorites_index_path do %>いいねした投稿<% end %></li>
-          <li><%= link_to new_topic_path do %>新規投稿<% end %></li>
-          <li><%= link_to topics_path do %>みんなの投稿一覧<% end %></li>
-          <p class="navbar-text"><%= current_user.name %>さん ようこそ</p>
-          <li>
-          <%= link_to logout_path, method: :delete do %>
-            <%= image_tag "icons/logout.png" %>
-          <% end %>
-          </li>
-    <% else %>
-			  <p class="navbar-text">ようこそ ゲスト さん</p>
-      </ul>
-		</div>
-    <% end %>
-	</div>
-</nav>
-以上過去ナビゲーションバー編集　-->
+    <%= yield %>
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+        });
 
-  <%= yield %>
-
-  <script>
-    $(function(){
-      $(".alert").fadeOut(5000);
-      });
-  </script>
+        var startPos = 0,winScrollTop = 0;
+        $(window).on('scroll',function(){
+        winScrollTop = $(this).scrollTop();
+        if (winScrollTop >= startPos) {
+          if(winScrollTop >= 200){
+            $('.site-header').addClass('hide');
+          }
+        } else {
+          $('.site-header').removeClass('hide');
+        }
+        startPos = winScrollTop;
+        });
+    </script>
   </body>
 </html>

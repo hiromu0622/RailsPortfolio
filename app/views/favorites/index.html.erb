@@ -2,7 +2,7 @@
   <div class="container">
     <% @favorite_topics.each do |topic| %>
       <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-4">
           <div class="topic-index-single">
             <h2 class="topic-author">
               <%= topic.user&.name %>
@@ -16,6 +16,9 @@
               <%= topic.description %>
             </p>
           </div>
+        </div>
+        <div class="col-md-8">
+        
         </div>
       </div>
     <% end %>
