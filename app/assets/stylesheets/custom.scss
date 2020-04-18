@@ -273,7 +273,33 @@ h1, h2 {
 .profile_photo {
   border-radius: 20px;
 }
-.profile-edit-btn {
+// .profile-edit-btn {
+// 	position: relative;
+// 	display: block;
+// 	width: 160px;
+// 	padding: 0.8em;
+// 	text-align: center;
+// 	text-decoration: none;
+// 	color: #fff;
+// 	background: #EC407A;
+// 	border:1px solid #fff;
+// 	overflow: hidden;
+//   &:before {
+//     content:"";
+//     position: absolute;
+//     top: 0px;
+//     left: -150px;
+//     height: 100%;
+//     width: 160px;
+//     background : #fff;
+//     opacity: 0.3;
+//     transition: .4s;
+//   }
+//   &:hover:before {
+//     left:0;
+//   }
+// }
+input#profile-edit-btn {
 	position: relative;
 	display: block;
 	width: 160px;
@@ -284,34 +310,8 @@ h1, h2 {
 	background: #EC407A;
 	border:1px solid #fff;
 	overflow: hidden;
-  &:before {
-    content:"";
-    position: absolute;
-    top: 0px;
-    left: -150px;
-    height: 100%;
-    width: 160px;
-    background : #fff;
-    opacity: 0.3;
-    transition: .4s;
-  }
-  &:hover:before {
-    left:0;
-  }
 }
-a.cp_btn {
-	position: relative;
-	display: block;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #fff;
-	background: #EC407A;
-	border:1px solid #fff;
-	overflow: hidden;
-}
-a.cp_btn:before {
+input#profile-edit-btn:before {
 	content:"";
 	position: absolute;
 	top: 0px;
@@ -322,13 +322,43 @@ a.cp_btn:before {
 	opacity: 0.3;
 	transition: .4s;
 }
-a.cp_btn:hover:before {
+input#profile-edit-btn:hover:before {
 	left:0;
 }
+input[type="submit"]:hover {
+  /* マウスが載ったとき */
+  background-image: linear-gradient(0deg, #68d3db, #e5f4fc);
+  border: 1px solid #2c628b;
+}
+// .profile-edit-btn {
+// 	position: relative;
+// 	display: block;
+// 	width: 160px;
+// 	padding: 0.8em;
+// 	text-align: center;
+// 	text-decoration: none;
+// 	color: #fff;
+// 	background: #EC407A;
+// 	border:1px solid #fff;
+// 	overflow: hidden;
+// }
+// .profile-edit-btn:before {
+// 	content:"";
+// 	position: absolute;
+// 	top: 0px;
+// 	left: -150px;
+// 	height: 100%;
+// 	width: 160px;
+// 	background : #fff;
+// 	opacity: 0.3;
+// 	transition: .4s;
+// }
+// .profile-edit-btn:hover:before {
+// 	left:0;
+// }
 
 
 .site-header{
-  // background: rgba(255,255,255,0.8);
   padding: 20px;
   position: fixed;
   top: 0;

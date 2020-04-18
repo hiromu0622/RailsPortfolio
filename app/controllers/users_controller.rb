@@ -18,6 +18,9 @@ class UsersController < ApplicationController
     @userprefectures =  UserPrefecture.new
     @userprefectures.user_id = current_user.id
     @usertopics = Topic.where(user_id: current_user.id)
+
+    @prefectures = Topic.where(user_id: current_user.id).select(:prefecture).distinct
+    
     # @userprefectures.prefecture = @usertopics.prefecture
   end
 

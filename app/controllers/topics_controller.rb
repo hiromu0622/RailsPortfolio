@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
   end
 
   def usertopics
-    @topics = Topic.all.includes(:favorite_users)
+    @topics = Topic.where(user_id: current_user).all
   end
 
   def detail

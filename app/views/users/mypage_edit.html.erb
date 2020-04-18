@@ -19,10 +19,13 @@
       <p align="center"><%= f.text_field :password, placeholder: "変更したいパスワードを入れてください", class:"edit-form-control" %></p>
       <p align="center"><%= f.label :パスワードの確認 %></p>
       <p align="center"><%= f.text_field :password_confirmation, placeholder: "確認のため先ほどのパスワードを入力してください", class:"edit-form-control" %></p>
-      <p align="center" class="profile-edit-btn"><%= f.submit "マイページの更新" %></p>
-      <p align="center"　><%= f.submit "マイページの更新", class:"profile-edit-btn" %></p>
+     
+      <%# <p align="center" class="profile-edit-btn"><%= f.submit "マイページの更新", class:"profile-edit-btn" %></p> %>
+      <p align="center"　><%= f.submit "マイページの更新", id:"profile-edit-btn" %></p>
 
-      <a href="#" class="cp_btn">button</a>
+      <a href="#" class="profie-edit-btn">button</a>
+      <%# <p href="#" class="cp_btn">button</p> %>
+      
       <p align="center"><%= image_tag "icons/profile-icon.png" %></p>
     <% end %>
   </div>

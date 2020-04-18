@@ -25,9 +25,13 @@
             <%= @user.email %>
         </div>
             <div class="mypage-edit-link col-md-6">
-            <%= @usertopics %>
-            <%# <%= @usertopics.description %> %>
-            <%# <%= @usertopics.user_id %> %>
+            <%# <%= @usertopics %>
+            <% @prefectures.each do |prefecuture| %>
+            <%= prefecuture.prefecture %>
+            <% end %>
+            <%= @prefectures.size %>/47
+            <%# <%= @usertopics.description %>
+            <%# <%= @usertopics.user_id %>
             </div>
     </div>
 </div>
