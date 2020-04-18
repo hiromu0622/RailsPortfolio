@@ -5,42 +5,67 @@
       <p>これは旅行の思い出を記録、シェアするサービスです。</p>
       <p>レッツ全国踏破！！</p></h3>
       <div class="row">
-        <div class="offset-md-3 col-md-3">
+        <div class="offset-sm-3 col-sm-3">
           <%= link_to '新規登録', new_user_path, class: 'btn btn-block btn-index' %>
         </div>
-        <div class="col-md-3">
+        <div class="col-sm-3">
           <%= link_to 'Log in', login_path, class: 'btn btn-block btn-index' %>
         </div>
       </div>
   </div>
 </div>
-<div class="top-hero-m-wrapper">
+<div class="top-hero-m-wrapper box">
   <div class="row">
-    <div class="col-md-6 ">
+    <div class="col-sm-6">
       <span>日本は四季に恵まれとても綺麗な景色があります。</span>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <span><%= image_tag "aki.jpg", class:'top-2' %></span>
     </div>
   </div>
 </div>
-<div class="top-hero-l-wrapper">
+<div class="top-hero-l-wrapper box2">
   <div class="row">
-    <div class="col-md-6 ">
+    <div class="col-sm-6">
       <span><%= image_tag "snow.jpg", class:'top-2' %></span>
     </div>
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <p>日本は四季に恵まれとても綺麗な景色があります。</p>
     </div>
   </div>
 </div>
-<div class="top-hero-l-wrapper">
+<div class="top-hero-l-wrapper box">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <p>日本は四季に恵まれとても綺麗な景色があります。</p>
     </div>
-    <div class="col-md-6 ">
+    <div class="col-sm-6">
       <span><%= image_tag "sakura.jpg", class:'top-2' %></span>
     </div>
   </div>
 </div>
+<div class="top-hero-l-wrapper">
+
+</div>
+
+
+<script>
+  var window_h = $(window).height();
+  $("#wh span").text(window_h);
+  //スクロールイベント
+  $(window).on("scroll", function() {
+    var scroll_top = $(window).scrollTop();
+    $("#scroll span").text(scroll_top);
+
+    $(".box, .box2").each(function() {
+      var elem_pos = $(this).offset().top;
+      $(this).find(".box_pos .box2_pos span").text(Math.floor(elem_pos));　
+      //どのタイミングでフェードインさせるか
+      if (scroll_top >= elem_pos - window_h+600) {
+        $(this).addClass("fadein");
+      } else {
+        $(this).removeClass("fadein");
+      }
+    });
+  });
+</script>
