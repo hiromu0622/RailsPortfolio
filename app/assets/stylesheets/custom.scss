@@ -80,7 +80,7 @@ h1, h2 {
     background-color: rgb(230, 102, 17);
   }
   .top-2 {
-    width: 50vw;
+    width: 100%;
   }
   .top-hero-m-wrapper {
     padding-top: 290px;
@@ -141,7 +141,7 @@ h1, h2 {
     padding-top: 100px;
   }
   .topic-index-wrapper {
-    padding-top: 70px;
+    padding-top: 90px;
     background-color: #fafafa;
     .topic-index-single {
       background-color: #fff;
@@ -152,7 +152,7 @@ h1, h2 {
       border-radius: 3px;
       .topic-author {
         padding-right: 20px;
-        padding-left: 20px;
+        padding-left: 25px;
       }
       .topic-text {
         padding-right: 20px;
@@ -352,7 +352,16 @@ input[type="submit"]:hover {
   opacity:0.2;
   transition:opacity 4s,transform 2.5s;
 }
-.fadein{
+.fadein {
   opacity:1;
   transform:translate(0,0);
+}
+
+.footer {
+  padding-top: 150px;
+  background-color: #fafafa;
+}
+.topics-right {
+  float: right;
+  // padding-right: 20px;
 }
