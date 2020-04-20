@@ -38,7 +38,10 @@
                 <%= link_to comments_new_path(topic_id: topic.id) do %>
                   <p><%= comment.user&.name %>さん
                 <% end %>
-                <%= comment.comment %></p>
+                <%= comment.comment.truncate(15) %>
+                  <% if comment.comment.length >= 15  %>
+                    <%= link_to topics_detail_path(topic_id: topic.id) do %>続きを見る<%end%></p>
+                  <% end %>
               <% end %>
             </div>
           </div>

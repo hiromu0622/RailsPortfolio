@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
         @comment.topic_id = params[:comment][:topic_id]
         @comment.comment = params[:comment][:comment]
         if @comment.save
+            # render :index
             redirect_to topics_path, success: 'コメントしました'
         else
             redirect_to topics_path, danger: 'コメントできませんでした'

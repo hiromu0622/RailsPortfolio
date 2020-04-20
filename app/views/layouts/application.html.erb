@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,9 +13,9 @@
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
     <!-- 以下ナビゲーションバー編集　-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-transparent site-header">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparent site-header">
       <%= link_to root_path do %>
-      <li class="navbar-brand nav-btn fukidashi-icon">
+      <li class="btn navbar-brand nav-btn fukidashi-icon">
           <span><%= image_tag "icons/logo.png" %></span>
           <span class="fukidashi">トップ画面</span>
       </li>
@@ -35,7 +34,7 @@
             <p class=" navbar-text">
             <% if  current_user.profile_photo == nil %>
             <% else %>
-            <%= image_tag current_user.profile_photo.url :size =>'40x40', class:'profile_photo' %>
+              <%= image_tag current_user.profile_photo.url :size =>'40x40', class:'profile_photo' %>
             <% end %>
             <%= current_user.name %>さん ようこそ</p>
             <li class='btn nav-btn fukidashi-icon'>

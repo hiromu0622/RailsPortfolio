@@ -6,7 +6,6 @@ h1, h2 {
   color: rgb(255, 255, 255);
 }
 
-
 .btn-index {
   position: relative;
   background-color: #f7d034;
@@ -177,7 +176,8 @@ h1, h2 {
   }
 .fukidashi {
   position   : absolute;                /* 親要素を基準 */
-  display: none;                        /* 要素を非表示 */
+  display: none;   
+  z-index: 10;                     /* 要素を非表示 */
   // padding: 2px;                         /* テキストの前後の余白 */
   background-color: rgba(255, 202, 87, 0.836);       /* 背景色（透明度） */
   // width:100%;                          /* 吹き出し全体の幅 */
@@ -329,7 +329,7 @@ input[type="submit"]:hover {
 
 
 .site-header{
-  padding: 20px;
+  padding: 10px;
   position: fixed;
   top: 0;
   transition: .5s;

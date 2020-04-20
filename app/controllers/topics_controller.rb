@@ -30,6 +30,10 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by(id: params[:topic_id])
   end
 
+  def ajax
+    
+  end
+
 
   private
   def topic_params
