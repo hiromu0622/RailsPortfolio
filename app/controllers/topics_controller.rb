@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all.includes(:favorite_users).order(created_at: :desc)
+    # @comments = @topics.comment.order(created_at: :desc)
   end
 
   def new
@@ -23,15 +24,22 @@ class TopicsController < ApplicationController
   end
 
   def usertopics
-    @topics = Topic.where(user_id: current_user).all
+    @topics = Topic.where(user_id: current_user).all.order(created_at: :desc)
   end
 
   def detail
     @topic = Topic.find_by(id: params[:topic_id])
+    # @topic = Topic.find(params[:id])
+    @comment = Comment.new
+    @comments = @topic.comments
+
   end
 
-  def ajax
-    
+  def show
+    @topic = Topic.find(params[:id])
+    @comment = Comment.new
+    @comments = @topic.comments
+
   end
 
 

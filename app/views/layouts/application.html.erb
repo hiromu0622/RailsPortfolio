@@ -32,11 +32,12 @@
             <%= link_to new_topic_path do %><li class='btn nav-btn'>新規投稿</li><% end %>
             <%= link_to topics_path do %><li class='btn nav-btn'>みんなの投稿一覧</li><% end %>
             <p class=" navbar-text">
-            <% if  current_user.profile_photo == nil %>
+            <% if  current_user.profile_photo.blank? %>
             <% else %>
-              <%= image_tag current_user.profile_photo.url :size =>'40x40', class:'profile_photo' %>
+              <%= image_tag current_user.profile_photo.url, class:"profile_photo_mini" %>
             <% end %>
-            <%= current_user.name %>さん ようこそ</p>
+            <%= current_user.name %>さん ようこそ
+            全国<%= prefecture_clear.size %>/47踏破！！</p>
             <li class='btn nav-btn fukidashi-icon'>
               <%= link_to logout_path, method: :delete, data: {confirm: "本当にログアウトしますか？"} do %>
                 <%= image_tag "icons/logout.png" %>

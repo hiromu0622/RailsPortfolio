@@ -267,7 +267,12 @@ h1, h2 {
   // display: block;
 }
 .profile_photo {
-  border-radius: 20px;
+  border-radius: 20px !important;
+}
+.profile_photo_mini {
+  border-radius: 20px !important;
+  width: 5vw !important;
+  height: 5vh !important;
 }
 input#profile-edit-btn {
 	position: relative;
@@ -364,4 +369,7 @@ input[type="submit"]:hover {
 .topics-right {
   float: right;
   // padding-right: 20px;
+}
+.test-padding {
+  padding-top: 190px;
 }

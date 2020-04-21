@@ -2,7 +2,7 @@
     <div class="row" >
         <div class="col-md-1"></div>
         <div class="mypage-edit-link col-md-5">
-            <% if @user.profile_photo == nil %>
+            <% if @user.profile_photo.blank? %>
                 <%= image_tag "icons/profile-icon.png" %>
             <% else %>
                 <%= image_tag @user.profile_photo.url, :size =>'200x200', class:'profile_photo' %>

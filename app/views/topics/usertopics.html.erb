@@ -1,12 +1,12 @@
 <div class="topic-index-wrapper">
   <div class="container">
+  <h4 class="topic-author">貴方の投稿</h4>
     <% @topics.each do |topic| %>
       <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-sm-8 offset-2">
           <div class="topic-index-single">
-            <h4 class="topic-author">
-              貴方の投稿
-            </h4>
+            <div class="topics-right">投稿時間  <%= l topic.created_at %></div>
+              
             <%= topic.prefecture_name %>
             <%= topic.title %>
             <%= l topic.created_at %>
@@ -19,7 +19,7 @@
             <% else %>
               <%= link_to favorites_path(topic_id: topic.id), method: :delete, class: 'fukidashi-icon' do %>
                 <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon favorite-color' %>
-              <span class="fukidashi">いいねを外す</span>
+                <span class="fukidashi">いいねを外す</span>
               <% end %>
             <% end %>
             <%= topic.favorite_users.count %>
@@ -27,9 +27,9 @@
               <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
               <span class="fukidashi">コメントを投稿する</span>
             <% end %>
+            <%= topic.description %>
             <p>　コメント</p>
             <p class="topic-text">
-              <%= topic.description %>
               <% topic.comments.each do |comment| %>
                 <p><%= link_to comments_new_path(topic_id: topic.id) do %></p>
                 <%= comment.user&.name %>
