@@ -14,13 +14,19 @@ class UsersController < ApplicationController
   end
 
   def mypage
-    @user = User.find_by(id: current_user.id)
-    @userprefectures =  UserPrefecture.new
-    @userprefectures.user_id = current_user.id
-    @usertopics = Topic.where(user_id: current_user.id)
-
-    @prefectures = Topic.where(user_id: current_user.id).select(:prefecture).distinct
-    
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @usertopics = Topic.where(user_id: params[:user_id])
+      @prefectures = Topic.where(user_id: params[:user_id]).select(:prefecture).distinct
+      # @userprefectures =  UserPrefecture.new
+      # @userprefectures.user_id = params[:user_id]
+    else
+      @user = User.find(current_user.id)
+      @usertopics = Topic.where(user_id: current_user.id)
+      @prefectures = Topic.where(user_id: current_user.id).select(:prefecture).distinct
+      # @userprefectures =  UserPrefecture.new
+      # @userprefectures.user_id = current_user.id
+    end
     # @userprefectures.prefecture = @usertopics.prefecture
   end
 

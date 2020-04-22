@@ -1,6 +1,6 @@
 <div class="container">
   <div class="test"></div>
-  <% if @user.profile_photo == nil%>
+  <% if @user.profile_photo.blank? %>
     <p align="center"><%= image_tag "icons/profile-icon.png" %></p>
   <% else %>
     <p align="center"><%= image_tag @user.profile_photo.url, :size =>'300x300', class:'profile_photo' %></p>

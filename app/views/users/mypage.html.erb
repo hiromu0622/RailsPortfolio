@@ -7,12 +7,14 @@
             <% else %>
                 <%= image_tag @user.profile_photo.url, :size =>'200x200', class:'profile_photo' %>
             <% end %>
-            <p><h3 class="profile-edit fukidashi-icon-edit"><%= link_to 'プロフィール編集', users_mypage_edit_path %></P>
-            <span class="fukidashi-edit">ここからプロフィールの写真、パスワード、メールアドレスの再設定ができるよ</span>
-            </h3>
+            <% if @user.id == current_user.id  %>
+                <p><h3 class="profile-edit fukidashi-icon-edit"><%= link_to 'プロフィール編集', users_mypage_edit_path %></P>
+                <span class="fukidashi-edit">ここからプロフィールの写真、パスワード、メールアドレスの再設定ができるよ</span>
+                </h3>
+            <% end %>
             <% if @user.profile == nil %>
-            <p>設定したプロフィールが表示されるよ</p>
-            <P>自分のことを書いてPRしてみよう</p>
+                <p>設定したプロフィールが表示されるよ</p>
+                <p>自分のことを書いてPRしてみよう</p>
             <% else %>
                 <p>プロフィール</p>
                 <div  class="edit-profile-form-control mypage-text" >
@@ -30,6 +32,9 @@
             <%= prefecuture.prefecture_name %>
             <% end %>
             <%= @prefectures.size %>/47
+            <div><%= @prefectures.size.to_i*100/47 %>％達成</div>
+            目指せ１００％
+            
             </div>
     </div>
 </div>

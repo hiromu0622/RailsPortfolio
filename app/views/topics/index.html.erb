@@ -6,16 +6,20 @@
           <div class="topic-index-single">
             <div class="topic-author">
               <% if topic.user.profile_photo.blank?  %>
-                <%= image_tag "icons/profile-icon.png", class:"profile_photo_mini" %> %>
+                <%= image_tag "icons/profile-icon.png", class:"profile_photo_mini" %>
               <% else %>
                 <%= image_tag topic.user.profile_photo.url, class:"profile_photo_mini" %>
               <% end %>
 
                 <%= topic.user&.name %>さんの投稿
-              <div class="topics-right">投稿時間  <%= l topic.created_at %></div>
+              <div class="topics-right">
+              <%= image_tag 'icons/date.png', class: 'topic-index-icon' %>
+              投稿時間<%= l topic.created_at %>
+                
+              </div>
             </div>
             <div class="topic-author">
-              タイトル <%= topic.title %>
+              〔タイトル〕 <b><%= topic.title %></b>
             <div class="topics-right">行った県名   <b><%= topic.prefecture_name %></b></div>
             </div>
             <%= link_to topics_detail_path(topic_id: topic.id) do %>
@@ -33,15 +37,25 @@
                 <% end %>
             <% end %>
             <%= topic.favorite_users.count %>
-            <%= link_to comments_new_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
+            <%= link_to topics_detail_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
               <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
               <span class="fukidashi">コメントを投稿する</span>
+            <% end %>
+            <% if topic.user_id == current_user.id %>
+              <%= link_to comments_new_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
+                <%= image_tag 'icons/edit.png', class: 'topic-index-icon' %>
+                <span class="fukidashi">投稿を編集する</span>
               <% end %>
+              <%= link_to topic_path(topic.id), method: :delete, class: 'fukidashi-icon' ,data: {confirm: "本当に削除しますか？"} do %>
+                <%= image_tag 'icons/delete2.png', class: 'topic-index-icon' %>
+                <span class="fukidashi">トピックを削除する</span>
+              <% end %>
+            <% end %>
             <div class="topic-author">
               <p><%= topic.description.truncate(30) %></p>
               <p>コメント</p>
               <% topic.comments.each do |comment| %>
-                <%= link_to comments_new_path(topic_id: topic.id) do %>
+                <%= link_to users_mypage_path(user_id: comment.user.id) do %>
                   <p><%= comment.user&.name %>さん
                 <% end %>
                 <%= comment.comment.truncate(15) %>
