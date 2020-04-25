@@ -52,7 +52,7 @@
               <% end %>
             <% end %>
             <div class="topic-author">
-              <p><%= topic.description.truncate(30) %></p>
+              <p><%= simple_format(topic.description.truncate(30)) %></p>
               <p>コメント</p>
               <% topic.comments.each do |comment| %>
                 <%= link_to users_mypage_path(user_id: comment.user.id) do %>

@@ -5,7 +5,12 @@ h1, h2 {
 .text-white {
   color: rgb(255, 255, 255);
 }
-
+.fuchidori {
+    -webkit-text-stroke: 1px #ff943c;
+    // text-stroke: 1.5px#ff943c;
+    text-shadow: -1px -2px 3px #808080; 
+    font-family: Hiragino Maru Gothic Pro;
+  }
 .btn-index {
   position: relative;
   background-color: #f7d034;
@@ -355,7 +360,7 @@ input[type="submit"]:hover {
   background-color:#4c00ff;
   transform:translate(150px,-150px);
   opacity:0.2;
-  transition:opacity 4s,transform 2.5s;
+  transition:opacity 3s,transform 1.5s;
 }
 .fadein {
   opacity:1;
@@ -372,4 +377,45 @@ input[type="submit"]:hover {
 }
 .test-padding {
   padding-top: 190px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-auto {
+  flex: auto;
+  width: 50%;
+}
+
+
+.faq-list-item {
+  margin:10px;
+  border-bottom:1px solid #ccc;
+  position:relative;
+  cursor:pointer;
+  text-align: left;
+}
+
+.faq-list-item h3 {
+  font-size: 20px;
+}
+
+.faq-list-item span {
+  position:absolute;
+  top:0;
+  right:5px;
+  color:#ccc;
+  font-size:13px;
+}
+
+.answer {
+  font-size: 20px;
+  display: none;
+  padding: 5px 0px;
+  margin-bottom: 15px;
+  width: 80%;
+}
+.faq-popular {
+  text-align: center;
+  margin-bottom: 40px;
 }
