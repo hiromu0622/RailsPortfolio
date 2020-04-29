@@ -1,90 +1,92 @@
-<div class="top-hero-wrapper text-center">
-  <div class="container top-hero-container">
-    <h1 class="text-white fuchidori">日本全国踏破しよう！！</h1>
-    <h3 class="text-white fuchidori">皆さんは４７都道府県全て行ったことがありますか？
-      <p>これは旅行の思い出を記録、シェアするサービスです。</p>
-      <p>レッツ全国踏破！！</p></h3>
+<div class='top'>
+  <div class="top-hero-wrapper text-center">
+    <div class="container top-hero-container">
+      <h1 class="text-white fuchidori">日本全国踏破しよう！！</h1>
+      <h3 class="text-white fuchidori">皆さんは４７都道府県全て行ったことがありますか？
+        <p>これは旅行の思い出を記録、シェアするサービスです。</p>
+        <p>レッツ全国踏破！！</p></h3>
 
-      <div class="row">
-        <div class="offset-sm-3 col-sm-3">
-          <%= link_to '新規登録', new_user_path, class: 'btn btn-block btn-index' %>
+        <div class="row">
+          <div class="offset-sm-3 col-sm-3">
+            <%= link_to '新規登録', new_user_path, class: 'btn btn-block btn-index' %>
+          </div>
+          <div class="col-sm-3">
+            <%= link_to 'Log in', login_path, class: 'btn btn-block btn-index' %>
+          </div>
         </div>
-        <div class="col-sm-3">
-          <%= link_to 'Log in', login_path, class: 'btn btn-block btn-index' %>
-        </div>
+    </div>
+  </div>
+  <div class="top-hero-m-wrapper box">
+    <div class="row">
+      <div class="col-sm-5">
+        <span align="middle">日本は四季に恵まれとても綺麗な景色があります。</span>
       </div>
-  </div>
-</div>
-<div class="top-hero-m-wrapper box">
-  <div class="row">
-    <div class="col-sm-5">
-      <span align="middle">日本は四季に恵まれとても綺麗な景色があります。</span>
-    </div>
-    <div class="col-sm-7">
-      <span><%= image_tag "aki.jpg", class:'top-2' %></span>
-    </div>
-  </div>
-</div>
-<div class="top-hero-l-wrapper box2">
-  <div class="row">
-    <div class="col-sm-7 ">
-      <span><%= image_tag "snow.jpg", class:'top-2' %></span>
-    </div>
-    <div class="col-sm-5">
-      <p>日本は四季に恵まれとても綺麗な景色があります。</p>
-    </div>
-  </div>
-</div>
-<div class="top-hero-l-wrapper box">
-  <div class="row">
-    <div class="col-sm-5">
-      <p>日本は四季に恵まれとても綺麗な景色があります。</p>
-    </div>
-    <div class="col-sm-7 ">
-      <span><%= image_tag "sakura.jpg", class:'top-2' %></span>
-    </div>
-  </div>
-</div>
-<div class="top-hero-l-wrapper box2">
-  <div class="row">
-    <div class="col-sm-7 ">
-      <span><%= image_tag "kawa.jpg", class:'top-2' %></span>
-    </div>
-    <div class="col-sm-5">
-      <p>日本は四季に恵まれとても綺麗な景色があります。</p>
-    </div>
-  </div>
-</div>
-    <div class="top-hero-l-wrapper col-sm-8 offset-2">
-    <h2 class="faq-popular">よくある質問</h2>
-      <div class="faq">
-        <ul id="faq-list">
-          <li class="faq-list-item">
-            <h3 class="question">日本全国踏破とはどんなサービスですか？</h3>
-            <span>+</span>
-            <div class="answer">
-              <p>旅行の思い出を記録するサービスです。写真、コメントと共に各都道府県の記録をしてきましょう！　行った都道府県を設定することで全国踏破率が出ますので１００％踏破を目指して頑張りましょう！！</p>
-            </div>
-          </li>
-          <li class="faq-list-item">
-            <h3 class="question">無料で利用できますか？</h3>
-            <span>+</span>
-            <div class="answer">
-              <p>当サービスは完全に無料です。安心してご利用ください。</p>
-            </div>
-          </li>
-          <li class="faq-list-item">
-            <h3 class="question">質問３？</h3>
-            <span>+</span>
-            <div class="answer">
-              <p>答え３</p>
-            </div>
-          </li>
-        </ul>
+      <div class="col-sm-7">
+        <span><%= image_tag "aki.jpg", class:'top-2' %></span>
       </div>
     </div>
-<div class="top-hero-l-wrapper">
-  日本のいいところをどんどんシェアして行こう！！
+  </div>
+  <div class="top-hero-l-wrapper box2">
+    <div class="row">
+      <div class="col-sm-7 ">
+        <span><%= image_tag "snow.jpg", class:'top-2' %></span>
+      </div>
+      <div class="col-sm-5">
+        <p>日本は四季に恵まれとても綺麗な景色があります。</p>
+      </div>
+    </div>
+  </div>
+  <div class="top-hero-l-wrapper box">
+    <div class="row">
+      <div class="col-sm-5">
+        <p>日本は四季に恵まれとても綺麗な景色があります。</p>
+      </div>
+      <div class="col-sm-7 ">
+        <span><%= image_tag "sakura.jpg", class:'top-2' %></span>
+      </div>
+    </div>
+  </div>
+  <div class="top-hero-l-wrapper box2">
+    <div class="row">
+      <div class="col-sm-7 ">
+        <span><%= image_tag "kawa.jpg", class:'top-2' %></span>
+      </div>
+      <div class="col-sm-5">
+        <p>日本は四季に恵まれとても綺麗な景色があります。</p>
+      </div>
+    </div>
+  </div>
+      <div class="top-hero-l-wrapper col-sm-8 offset-2">
+      <h2 class="faq-popular">よくある質問<%= image_tag "icons/q-mark.jpg", class:'topic-index-icon-top' %></h2>
+        <div class="faq">
+          <ul id="faq-list">
+            <li class="faq-list-item">
+              <h3 class="question">日本全国踏破とはどんなサービスですか？</h3>
+              <span>➕</span>
+              <div class="answer">
+                <p>旅行の思い出を記録するサービスです。写真、コメントと共に各都道府県の記録をしてきましょう！　行った都道府県を設定することで全国踏破率が出ますので１００％踏破を目指して頑張りましょう！！</p>
+              </div>
+            </li>
+            <li class="faq-list-item">
+              <h3 class="question">無料で利用できますか？</h3>
+              <span>➕</span>
+              <div class="answer">
+                <p>当サービスは完全に無料です。安心してご利用ください。</p>
+              </div>
+            </li>
+            <li class="faq-list-item">
+              <h3 class="question">質問３？</h3>
+              <span>➕</span>
+              <div class="answer">
+                <p>答え３</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+  <div class="top-hero-l-wrapper">
+    日本のいいところをどんどんシェアして行こう！！
+  </div>
 </div>
 
 <%# jQueryを使ってスクロール時にフェードインを実装 %>
@@ -92,21 +94,18 @@
   // var window_h = $(window).height();
   // $("#wh span").text(window_h);
   //スクロールイベント
+
+  //良くある質問のアコーディオン表示
 $('.faq-list-item').click(function() {
     var $answer = $(this).find('.answer');
-    if($answer.hasClass('open')) { 
+    if($answer.hasClass('open')) {
       $answer.removeClass('open');
-      // slideUpメソッドを用いて、$answerを隠してください
       $answer.slideUp();
-
-      // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-      $(this).find('span').text('+');
+            $(this).find('span').text('➕');
     } else {
-      $answer.addClass('open'); 
-      // slideDownメソッドを用いて、$answerを表示してください
+      $answer.addClass('open');
       $answer.slideDown();
-      // 子要素のspanタグの中身をtextメソッドを用いて書き換えてください
-      $(this).find('span').text('-');
+      $(this).find('span').text('➖');
     }
   });
 

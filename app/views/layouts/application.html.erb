@@ -50,12 +50,36 @@
         </ul>
       </div>
     </nav>
+    <%# <div id="page-top-btn"><a href="#"></a></div> %>
     <%= yield %>
     <script>
       $(function(){
+        //CRUD処理時に画面上部にポップアップ
         $(".alert").fadeOut(5000);
+        //右下ボタンで画面上部にスクロール
+        var pagetop = $('#page-top-btn');
+        pagetop.hide();
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {  //200pxスクロールしたら表示
+              pagetop.fadeIn();
+          } else {
+              pagetop.fadeOut();
+          }
         });
+        pagetop.click(function(){
+
+          $('html, body').animate({
+            'scrollTop':0
+          },500);
+
+        });
+
+
+
+
+      });
       $(function(){
+      //スクロール時にナビゲーションバー 出現
         var startPos = 0,winScrollTop = 0;
         $(window).on('scroll',function(){
         winScrollTop = $(this).scrollTop();
@@ -69,7 +93,9 @@
         startPos = winScrollTop;
         });
       });
-    </script>
 
+
+
+    </script>
   </body>
 </html>
