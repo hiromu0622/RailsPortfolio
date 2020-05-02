@@ -28,13 +28,25 @@
         </div>
             <div class="mypage-edit-link col-md-6">
             <%# <%= @usertopics %>
-            <% @prefectures.each do |prefecuture| %>
-            <%= prefecuture.prefecture_name %>
-            <% end %>
-            <%= @prefectures.size %>/47
-            <div><%= @prefectures.size.to_i*100/47 %>％達成</div>
-            目指せ１００％
-            
+                <% @prefectures.each do |prefecuture| %>
+                <%= prefecuture.prefecture_name %>
+                <% end %>
+                <%= @prefectures.size %>/47
+                <div><%= @prefectures.size.to_i*100/47 %>％達成</div>
+                    目指せ１００％
+                    <div id="map-container"></div>
+            <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+                    <%= javascript_include_tag 'jquery.japan-map.min.js' %>
+                <script>
+                    $(function(){
+                        $("#map-container").japanMap({
+                            width:600,
+                            onSelect : function(data){
+                                alert(data.name);
+                            }
+                        });
+                    });
+                </script>
             </div>
     </div>
 </div>

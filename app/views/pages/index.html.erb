@@ -5,7 +5,6 @@
       <h3 class="text-white fuchidori">皆さんは４７都道府県全て行ったことがありますか？
         <p>これは旅行の思い出を記録、シェアするサービスです。</p>
         <p>レッツ全国踏破！！</p></h3>
-
         <div class="row">
           <div class="offset-sm-3 col-sm-3">
             <%= link_to '新規登録', new_user_path, class: 'btn btn-block btn-index' %>
@@ -56,34 +55,34 @@
       </div>
     </div>
   </div>
-      <div class="top-hero-l-wrapper col-sm-8 offset-2">
-      <h2 class="faq-popular">よくある質問<%= image_tag "icons/q-mark.jpg", class:'topic-index-icon-top' %></h2>
-        <div class="faq">
-          <ul id="faq-list">
-            <li class="faq-list-item">
-              <h3 class="question">日本全国踏破とはどんなサービスですか？</h3>
-              <span>➕</span>
-              <div class="answer">
-                <p>旅行の思い出を記録するサービスです。写真、コメントと共に各都道府県の記録をしてきましょう！　行った都道府県を設定することで全国踏破率が出ますので１００％踏破を目指して頑張りましょう！！</p>
-              </div>
-            </li>
-            <li class="faq-list-item">
-              <h3 class="question">無料で利用できますか？</h3>
-              <span>➕</span>
-              <div class="answer">
-                <p>当サービスは完全に無料です。安心してご利用ください。</p>
-              </div>
-            </li>
-            <li class="faq-list-item">
-              <h3 class="question">質問３？</h3>
-              <span>➕</span>
-              <div class="answer">
-                <p>答え３</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+  <div class="top-hero-l-wrapper col-sm-8 offset-2 faq-popular-list">
+    <h2 class="faq-popular">よくある質問<%= image_tag "icons/q-mark.jpg", class:'topic-index-icon-top' %></h2>
+      <div class="faq">
+        <ul id="faq-list">
+          <li class="faq-list-item">
+            <h3 class="question">日本全国踏破とはどんなサービスですか？</h3>
+            <span>➕</span>
+            <div class="answer">
+              <p>旅行の思い出を記録するサービスです。写真、コメントと共に各都道府県の記録をしてきましょう！　行った都道府県を設定することで全国踏破率が出ますので１００％踏破を目指して頑張りましょう！！</p>
+            </div>
+          </li>
+          <li class="faq-list-item">
+            <h3 class="question">無料で利用できますか？</h3>
+            <span>➕</span>
+            <div class="answer">
+              <p>当サービスは完全に無料です。安心してご利用ください。</p>
+            </div>
+          </li>
+          <li class="faq-list-item">
+            <h3 class="question">質問３？</h3>
+            <span>➕</span>
+            <div class="answer">
+              <p>答え３</p>
+            </div>
+          </li>
+        </ul>
       </div>
+  </div>
   <div class="top-hero-l-wrapper">
     日本のいいところをどんどんシェアして行こう！！
   </div>
@@ -107,18 +106,19 @@ $('.faq-list-item').click(function() {
       $answer.slideDown();
       $(this).find('span').text('➖');
     }
-  });
+});
 
 
+// スクロール時に要素がフェードイン
   $(window).on("scroll", function() {
     var scroll_top = $(window).scrollTop();
     $("#scroll span").text(scroll_top);
 
     $(".box, .box2").each(function() {
       var elem_pos = $(this).offset().top;
-      $(this).find(".box_pos .box2_pos span").text(Math.floor(elem_pos));　
+      $(this).find(".box_pos .box2_pos span").text(elem_pos);　
       //どのタイミングでフェードインさせるか
-      if (scroll_top >= elem_pos ) {
+      if (scroll_top >= elem_pos-400 ) {
         $(this).addClass("fadein");
       } else {
         $(this).removeClass("fadein");

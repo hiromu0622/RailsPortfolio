@@ -55,6 +55,7 @@ h1, h2 {
     margin: auto;
   }
   .nav-btn {
+    // display: block !important;
     position: relative;
     background-color: #ff943c;
     border-radius: 4px;
@@ -72,6 +73,15 @@ h1, h2 {
 
   }
 }
+.btn {
+      display: initial;
+      display: block !important;
+    }
+
+.top-icon {
+
+}
+
 
 .top-hero-wrapper {
     margin-top: 105px;
@@ -84,7 +94,7 @@ h1, h2 {
     background-color: rgb(230, 102, 17);
   }
   .top {
-    // overflow-x: hidden;
+    overflow-x: hidden;
   }
   .top-2 {
     width: 100%;
@@ -355,17 +365,16 @@ input[type="submit"]:hover {
   transform: translateY(-100%);
 }
 .box {
-  background-color:#ffff00;
+  // background-color:#ffff00;
   transform:translate(-250px,-150px);
   opacity:0.2;
   transition:opacity 2.5s,transform 2.5s;
 }
 .box2 {
-  background-color:#4c00ff;
+  // background-color:#4c00ff;
   transform:translate(250px,-150px);
   opacity:0.2;
   transition:opacity 3s,transform 1.5s;
-  // display: table-caption;
 }
 .fadein {
   opacity:1;
@@ -440,6 +449,7 @@ input[type="submit"]:hover {
   background: #ffb14a;
   opacity: 0.6;
   border-radius: 50%;
+  z-index: 999;
 }
 #page-top-btn a{
   position: relative;
@@ -449,9 +459,9 @@ input[type="submit"]:hover {
   text-decoration: none;
 }
 #page-top-btn a::before{
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: '\f102';
+  // font-family: 'Font Awesome 5 Free';
+  // font-weight: 900;
+  // content: '\angle-double-up';
   font-size: 25px;
   color: #fff;
   position: absolute;

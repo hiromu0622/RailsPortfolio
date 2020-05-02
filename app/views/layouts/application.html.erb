@@ -7,18 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <script src="/path/to/jquery.min.js"></script>おそらくgemでjQueryを読み込んでるの必要ないはず %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="js/japanmap/jquery.japan-map.min.js"></script>
+        <script>
+        $(function(){
+            $("#map-container").japanMap({
+                onSelect : function(data){
+                    alert(data.name);
+                }
+            });
+        });
+    </script>
   </head>
   <body>
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
     <!-- 以下ナビゲーションバー編集　-->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparent site-header">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparent site-header ">
       <%= link_to root_path do %>
-      <li class="btn navbar-brand nav-btn fukidashi-icon">
-          <span><%= image_tag "icons/logo.png" %></span>
-          <span class="fukidashi">トップ画面</span>
-      </li>
+        <li class="btn nav-btn fukidashi-icon top-icon">
+            <%= image_tag "icons/logo.png" %>
+            <span class="fukidashi">トップ画面</span>
+        </li>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -38,24 +51,28 @@
             <% end %>
             <%= current_user.name %>さん ようこそ
             全国<%= prefecture_clear.size %>/47踏破！！</p>
-            <li class='btn nav-btn fukidashi-icon'>
+            
               <%= link_to logout_path, method: :delete, data: {confirm: "本当にログアウトしますか？"} do %>
-                <%= image_tag "icons/logout.png" %>
+                <li class='btn nav-btn fukidashi-icon'>
+                  <%= image_tag "icons/logout.png" %>
+                  <span class="fukidashi">ログアウト</span>
+                </li>
               <% end %>
-              <span class="fukidashi">ログアウト</span>
-            </li>
           <% else %>
             <p class="navbar-text">ようこそ ゲスト さん</p>
           <% end %>
         </ul>
       </div>
     </nav>
-    <%# <div id="page-top-btn"><a href="#"></a></div> %>
+    <div id="page-top-btn"><a class="fa fa-angle-double-up"></a></div>
     <%= yield %>
     <script>
       $(function(){
         //CRUD処理時に画面上部にポップアップ
         $(".alert").fadeOut(5000);
+      });
+
+      $(function(){
         //右下ボタンで画面上部にスクロール
         var pagetop = $('#page-top-btn');
         pagetop.hide();
@@ -67,16 +84,10 @@
           }
         });
         pagetop.click(function(){
-
           $('html, body').animate({
             'scrollTop':0
           },500);
-
         });
-
-
-
-
       });
       $(function(){
       //スクロール時にナビゲーションバー 出現
