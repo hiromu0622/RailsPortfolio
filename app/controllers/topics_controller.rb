@@ -42,6 +42,10 @@ class TopicsController < ApplicationController
 
   end
 
+  def prefecture
+    @topic = Topic.find_by(prefecture: params[:prefecture])
+  end
+
 
   private
   def topic_params

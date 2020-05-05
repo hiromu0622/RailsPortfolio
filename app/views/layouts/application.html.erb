@@ -8,18 +8,10 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%# <script src="/path/to/jquery.min.js"></script>おそらくgemでjQueryを読み込んでるの必要ないはず %>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <%# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> %>
 
-    <script src="js/japanmap/jquery.japan-map.min.js"></script>
-        <script>
-        $(function(){
-            $("#map-container").japanMap({
-                onSelect : function(data){
-                    alert(data.name);
-                }
-            });
-        });
-    </script>
+    <%# <script src="js/japanmap/jquery.japan-map.min.js"></script> %>
+        
   </head>
   <body>
     <% flash.each do |key, value| %>

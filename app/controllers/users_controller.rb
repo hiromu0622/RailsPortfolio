@@ -14,10 +14,18 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    
+      # 配列の場合
+        # @chart = [['行った県', @prefectures.count], ['行ってない県', 20]]
+      # ハッシュの場合
+        # @chart = {"国語" => 10, "算数" => 20, "理科"　=> 30, "社会" => 40}
+
     if params[:user_id].present?
       @user = User.find(params[:user_id])
       @usertopics = Topic.where(user_id: params[:user_id])
       @prefectures = Topic.where(user_id: params[:user_id]).select(:prefecture).distinct
+      # @= @prefectures.count
+      @chart = [['行った県', @prefectures.count], ['行ってない県', 47-@prefectures.count]]
       # @userprefectures =  UserPrefecture.new
       # @userprefectures.user_id = params[:user_id]
     else
@@ -26,6 +34,8 @@ class UsersController < ApplicationController
       @prefectures = Topic.where(user_id: current_user.id).select(:prefecture).distinct
       # @userprefectures =  UserPrefecture.new
       # @userprefectures.user_id = current_user.id
+      @chart = [['行った県', @prefectures.count], ['行ってない県', 47-@prefectures.count]]
+
     end
     # @userprefectures.prefecture = @usertopics.prefecture
   end

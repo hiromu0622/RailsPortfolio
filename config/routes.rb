@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get 'topics/usertopics', to: 'topics#usertopics'
   get 'topics/detail', to: 'topics#detail'
-
+  get 'topics/prefectures', to: 'topics#prefectures'
 
   resources :users
   resources :topics
