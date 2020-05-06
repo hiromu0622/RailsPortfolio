@@ -220,7 +220,7 @@ h1, h2 {
   display: inline;
 }
 .fukidashi-edit {
-  position   : absolute;                /* 親要素を基準 */
+  position: absolute;                /* 親要素を基準 */
   display: none;                        /* 要素を非表示 */
   // padding: 2px;                         /* テキストの前後の余白 */
   background-color: rgba(255, 202, 87, 0.836);       /* 背景色（透明度） */
@@ -243,22 +243,28 @@ h1, h2 {
   padding-top: 200px;
 
 }
+.mypage-hero-wrapper {
+  padding-top: 130px;
+}
 .mypage-edit-hero-wrapper {
   display: inline-block;
   margin: 10px auto;
 }
 .mypage-edit {
-  position   : relative;                /* 指定した分だけ相対的に移動 */
-  cursor: pointer;
-  display: inline-block;
-  background-color: rgba(255, 87, 87, 0.836);
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+  .edit-form {
+    padding-top: 40px;
+    font-size:20px;
+  }
 }
 .mypage-edit:hover .mypage {
   display: inline;                /* インライン要素として表示 */
 }
 .edit-profile-form-control {
   height: 100px;
-  width: 450px;
+  width: 90%;
   border-radius: 5px;
 }
 .mypage-text {
@@ -266,7 +272,7 @@ h1, h2 {
 }
 .edit-form-control {
   height: 45px;
-  width: 450px;
+  width: 90%;
   border-radius: 5px;
 }
 .mypage {
@@ -283,14 +289,6 @@ h1, h2 {
   padding-top: 130px;
   background-color: #fafafa;
 }
-.mypage-edit-link {
-  padding-top: 130px;
-}
-.test {
-  padding-top: 100px;
-  background-color: green;
-  // display: block;
-}
 .profile_photo {
   border-radius: 20px !important;
 }
@@ -298,37 +296,6 @@ h1, h2 {
   border-radius: 10px !important;
   width: 30px !important;
   height: 30px !important;
-}
-input#profile-edit-btn {
-	position: relative;
-	display: block;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #fff;
-	background: #EC407A;
-	border:1px solid #fff;
-	overflow: hidden;
-}
-input#profile-edit-btn:before {
-	content:"";
-	position: absolute;
-	top: 0px;
-	left: -150px;
-	height: 100%;
-	width: 160px;
-	background : #fff;
-	opacity: 0.3;
-	transition: .4s;
-}
-input#profile-edit-btn:hover:before {
-	left:0;
-}
-input[type="submit"]:hover {
-  /* マウスが載ったとき */
-  background-image: linear-gradient(0deg, #fac000, #e4df9a);
-  border: 1px solid #f1e100;
 }
 
 .site-header{
@@ -474,4 +441,49 @@ input[type="submit"]:hover {
   padding-bottom: 30px;
   margin-top: 50px;
   color: white;
+}
+
+.balloon-right {
+  position: relative;
+  display: inline-block;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #807e7e;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.balloon-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  margin-top: -12px;
+  border: 12px solid transparent;
+  border-left: 12px solid #FFF;
+  z-index: 2;
+}
+
+.balloon-right:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  margin-top: -14px;
+  border: 14px solid transparent;
+  border-left: 14px solid #807e7e;
+  z-index: 1;
+}
+
+.balloon-right p {
+  margin: 0;
+  padding: 0;
+}
+.chara {
+  // padding-top: 140px;
+  width: 100%;
 }

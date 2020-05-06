@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+before_action :authenticate_user,{only:[:detail]}
+
   def index
     @topics = Topic.all.includes(:favorite_users).order(created_at: :desc)
     # @comments = @topics.comment.order(created_at: :desc)
@@ -39,7 +41,9 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @comment = Comment.new
     @comments = @topic.comments
-
+      if current_user.blank?
+        redirect_to topics_path, success: 'rouiiiiii'
+      end
   end
 
   def prefecture

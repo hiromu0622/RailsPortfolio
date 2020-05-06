@@ -1,32 +1,26 @@
-<div class="container">
-  <div class="test"></div>
-  <% if @user.profile_photo.blank? %>
-    <p align="center"><%= image_tag "icons/profile-icon.png" %></p>
-  <% else %>
-    <p align="center"><%= image_tag @user.profile_photo.url, :size =>'300x300', class:'profile_photo' %></p>
-  <% end %>
-  <div class="col-xs-12 col-md-8 offset-2">
-    <%= form_for :user, url: users_mypage_path do |f| %>
-      <p align="center">プロフィール写真の変更</p>
-      <p align="center"><%= f.file_field :profile_photo %></p>
-      <p align="center"><%= f.label :profile %></p>
-      <p align="center"><%= f.text_area :profile, placeholder: "ここにあなたのプロフィールを書いてください", class:"edit-profile-form-control" %></p>
-      <p align="center"><%= f.label :ユーザー名の変更 %></p>
-      <p align="center"><%= f.text_field :name, placeholder: "変更したいユーザーネームを入れてください", class:"edit-form-control" %></p>
-      <p align="center"><%= f.label :メールアドレスの変更 %></p>
-      <p align="center"><%= f.text_field :email, placeholder: "変更したいメールアドレスを入れてください", class:"edit-form-control" %></p>
-      <p align="center"><%= f.label :パスワードの変更 %></p>
-      <p align="center"><%= f.text_field :password, placeholder: "変更したいパスワードを入れてください", class:"edit-form-control" %></p>
-      <p align="center"><%= f.label :パスワードの確認 %></p>
-      <p align="center"><%= f.text_field :password_confirmation, placeholder: "確認のため先ほどのパスワードを入力してください", class:"edit-form-control" %></p>
-     
-      <%# <p align="center" class="profile-edit-btn"><%= f.submit "マイページの更新", class:"profile-edit-btn" %></p> %>
-      <p align="center"　><%= f.submit "マイページの更新", id:"profile-edit-btn" %></p>
-
-      <a href="#" class="profie-edit-btn">button</a>
-      <%# <p href="#" class="cp_btn">button</p> %>
-      
+<div class="mypage-hero-wrapper row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 mypage-edit">
+    <% if @user.profile_photo.blank? %>
       <p align="center"><%= image_tag "icons/profile-icon.png" %></p>
+    <% else %>
+      <p align="center"><%= image_tag @user.profile_photo.url, :size =>'300x300', class:'profile_photo' %></p>
+    <% end %>
+      <%= form_for :user, url: users_mypage_path do |f| %>
+        <div>プロフィール写真の変更</div>
+        <div><%= f.file_field :profile_photo %></div>
+        <div class="edit-form"><%= f.label :profile %></div>
+        <div><%= f.text_area :profile, placeholder: "ここにあなたのプロフィールを書いてください", class:"edit-profile-form-control" %></div>
+        <div class="edit-form"><%= f.label :ユーザー名の変更 %></div>
+        <div><%= f.text_field :name, placeholder: "変更したいユーザーネームを入れてください", class:"edit-form-control" %></div>
+        <div class="edit-form"><%= f.label :メールアドレスの変更 %></div>
+        <div><%= f.text_field :email, placeholder: "変更したいメールアドレスを入れてください", class:"edit-form-control" %></div>
+        <div class="edit-form"><%= f.label :パスワードの変更 %></div>
+        <div><%= f.text_field :password, placeholder: "変更したいパスワードを入れてください", class:"edit-form-control" %></div>
+        <div class="edit-form"><%= f.label :パスワードの確認 %></div>
+        <div><%= f.text_field :password_confirmation, placeholder: "確認のため先ほどのパスワードを入力してください", class:"edit-form-control" %></div>
+        <p align="center", class="edit-form"><%= f.submit "マイページの更新", class:"btn btn-index" %></p>
     <% end %>
   </div>
+  <div class="col-md-3"></div>
 </div>

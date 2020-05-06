@@ -24,10 +24,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:user_id])
       @usertopics = Topic.where(user_id: params[:user_id])
       @prefectures = Topic.where(user_id: params[:user_id]).select(:prefecture).distinct
-      # @= @prefectures.count
       @chart = [['行った県', @prefectures.count], ['行ってない県', 47-@prefectures.count]]
-      # @userprefectures =  UserPrefecture.new
-      # @userprefectures.user_id = params[:user_id]
+
     else
       @user = User.find(current_user.id)
       @usertopics = Topic.where(user_id: current_user.id)
