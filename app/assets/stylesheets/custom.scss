@@ -51,7 +51,9 @@ h1, h2 {
   }
 
   .navbar-text {
-    color: red;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
     margin: auto;
   }
   .nav-btn {
@@ -84,7 +86,7 @@ h1, h2 {
 
 
 .top-hero-wrapper {
-    margin-top: 105px;
+    margin-top: 85px;
     width: 100vw;
     height: 90vh;
     background-image: url('japan-map2.png');
@@ -104,6 +106,10 @@ h1, h2 {
   }
   .top-hero-l-wrapper {
     padding-top: 240px;
+  }
+  .top-hero-b-wrapper {
+    padding: 160px 0;
+    text-align: center;
   }
   .top-hero-container {
     padding-top: 100px;
@@ -321,36 +327,9 @@ input#profile-edit-btn:hover:before {
 }
 input[type="submit"]:hover {
   /* マウスが載ったとき */
-  background-image: linear-gradient(0deg, #68d3db, #e5f4fc);
-  border: 1px solid #2c628b;
+  background-image: linear-gradient(0deg, #fac000, #e4df9a);
+  border: 1px solid #f1e100;
 }
-// .profile-edit-btn {
-// 	position: relative;
-// 	display: block;
-// 	width: 160px;
-// 	padding: 0.8em;
-// 	text-align: center;
-// 	text-decoration: none;
-// 	color: #fff;
-// 	background: #EC407A;
-// 	border:1px solid #fff;
-// 	overflow: hidden;
-// }
-// .profile-edit-btn:before {
-// 	content:"";
-// 	position: absolute;
-// 	top: 0px;
-// 	left: -150px;
-// 	height: 100%;
-// 	width: 160px;
-// 	background : #fff;
-// 	opacity: 0.3;
-// 	transition: .4s;
-// }
-// .profile-edit-btn:hover:before {
-// 	left:0;
-// }
-
 
 .site-header{
   padding: 10px;
@@ -381,10 +360,6 @@ input[type="submit"]:hover {
   transform:translate(0,0);
 }
 
-.footer {
-  padding-top: 150px;
-  background-color: #fafafa;
-}
 .topics-right {
   float: right;
   // padding-right: 20px;
@@ -412,6 +387,7 @@ input[type="submit"]:hover {
 
 .faq-list-item h3 {
   font-size: 20px;
+  justify-content: flex-start;
 }
 
 .faq-list-item span {
@@ -427,6 +403,7 @@ input[type="submit"]:hover {
   display: none;
   padding: 5px 0px;
   margin-bottom: 15px;
+  color: gray;
   // width: 80%;
 }
 .faq-popular {
@@ -477,4 +454,24 @@ input[type="submit"]:hover {
 
 .prefecture-name {
   line-height: 0.5;
+}
+
+@media screen and (min-width:768px) and (max-width:1200px) {
+  /*　画面サイズが480pxからはここを読み込む　*/
+  .usertext {display: none;}
+}
+
+.user-name {
+  color: rgb(255, 251, 0);
+}
+
+
+
+.footer {
+  background-color: rgba(255, 206, 73, 0.753);
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 50px;
+  color: white;
 }

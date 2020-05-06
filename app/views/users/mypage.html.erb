@@ -1,7 +1,7 @@
 <div class="mypage-hero-wrapper">
     <div class="row" >
         <div class="offset-1"></div>
-        <div class="mypage-edit-link col-md-5">
+        <div align="center" class="mypage-edit-link col-md-5">
             <% if @user.profile_photo.blank? %>
                 <%= image_tag "icons/profile-icon.png" %>
             <% else %>
@@ -9,9 +9,9 @@
             <% end %>
             
             <% if @user.id == current_user.id  %>
-                <p><h3 class="profile-edit fukidashi-icon-edit"><%= link_to 'プロフィール編集', users_mypage_edit_path %></P>
+                <p><h4 class="profile-edit fukidashi-icon-edit"><%= link_to 'プロフィール編集', users_mypage_edit_path %></P>
                 <span class="fukidashi-edit">ここからプロフィールの写真、パスワード、メールアドレスの再設定ができるよ</span>
-                </h3>
+                </h4>
             <% end %>
             <% if @user.profile == nil %>
                 <p>設定したプロフィールが表示されるよ</p>
@@ -29,12 +29,12 @@
         </div>
             <div class="mypage-edit-link col-md-3">
                 行った県数　<%= @prefectures.size %>/47
-                <div><%= @prefectures.size.to_i*100/47 %>％達成</div>
+                <div>全国踏破 <%= @prefectures.size.to_i*100/47 %> ％達成</div>
                     目指せ１００％
                 <%= pie_chart @chart, width: "80%", height: "80%", colors: ["orange", "#999"] %>
-                <%# <div id="map"></div> %>
             </div>
-            <div class="mypage-edit-link col-md-1 prefecture-name">
+            <div class="mypage-edit-link col-md-2 prefecture-name">
+                <p>今まで行った県</p>
                 <% @prefectures.each do |prefecuture| %>
                 <%= simple_format(prefecuture.prefecture_name) %>
                 <% end %>
@@ -42,14 +42,25 @@
             <%# jQueryコードがbootstrap内だと一部機能しない問題 %>
     </div>
     <div row >
-        <div class="col-md-10 offset-1" id="map"></div>
+        <div class="offset-1"></div>
+        <div align="center" id="map"></div>
+        <div class="offset-1"></div>
+
     </div>
+    <div row >
+        <div class="map-btn area1" style="width: 120px; height: 76px; right: 0px; top: 0px; display: block;">
+			<a href="#1" class="toggle on" style="line-height: 76px;">北海道</a>
+		</div>
+        <div class="map-btn area2" style="width: 120px; height: 38px; right: 0px; top: 89px; display: block;">
+			<a href="#2" class="toggle" style="line-height: 38px;">青森</a>
+		</div>
+
+    </div>
+
+
 </div>
 
 
-<%# <script src="//code.jquery.com/jquery-1.12.0.min.js"></script> %>
-<%# <%= javascript_include_tag 'jquery.japan-map.min.js' %>
-    
 <script>
     $(function(){
 
@@ -91,16 +102,20 @@
                 movesIslands : true, //南西諸島を左上に移動させるときはtrue、移動させないときはfalse
                 showsAreaName : false, //エリア名を表示しない場合はfalse
                 showsPrefectureName: true,　//県名の表示
-                width: 900, //canvasのwidth。別途heightも指定可。
+                width: 1000, //canvasのwidth。別途heightも指定可。
                 backgroundColor: "#ffffff", //canvasの背景色
                 font : "MS Mincho", //地図に表示する文字のフォント
-                fontSize : 12, //地図に表示する文字のサイズ
+                fontSize : 10, //地図に表示する文字のサイズ
                 fontColor : "areaColor", //地図に表示する文字の色。"areaColor"でエリアの色に合わせる
-                fontShadowColor : "black", //地図に表示する文字の影の色
+                fontShadowColor : "white", //地図に表示する文字の影の色
                 
                 onSelect : function(data){
                     location.href = areaLinks[data.area.code];
-                        }
+                        },
+                onHover: function(data){
+                    console.log('県めい');
+                }
+
             }
         );
 });

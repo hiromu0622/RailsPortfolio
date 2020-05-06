@@ -2,7 +2,8 @@
   <div class="container">
     <% @topics.each do |topic| %>
       <div class="row">
-        <div class="col-sm-8 offset-2">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
           <div class="topic-index-single">
             <div class="topic-author">
               <% if topic.user.profile_photo.blank?  %>
@@ -23,7 +24,7 @@
             <div class="topics-right">行った県名   <b><%= topic.prefecture_name %></b></div>
             </div>
             <%= link_to topics_detail_path(topic_id: topic.id) do %>
-              <%= image_tag topic.image.url,:size => '400x500' %>
+              <%= image_tag topic.image.url,:size => '500x500' %>
             <% end %>
             <% if !topic.favorite_users.include?(current_user) %>
               <%= link_to favorites_path(topic_id: topic.id),  method: :post, class: 'fukidashi-icon' do %>
@@ -89,6 +90,7 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-2"></div>
       </div>
     <% end %>
   </div>
