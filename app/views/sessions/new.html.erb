@@ -1,21 +1,22 @@
 <div class="users-new-wrapper">
   <div class="container">
     <div class="row">
-      <div class="offset-4 col-md-4 users-new-container">
-        <h1 class="text-center text-white">Log in</h1>
-        <%= form_for :session, url: login_path do |f| %>
-          <div class="form-group">
-            <%= f.label :email, class: "text-white" %>
-            <%= f.text_field :email, placeholder:'登録時のアドレスをご入力ください', class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password, class: "text-white" %>
-            <%= f.password_field :password, placeholder:'登録時のパスワードをご入力ください', class: "form-control" %>
-          </div>
-
-          <%= f.submit "ログイン", class: "btn-block btn-white" %>
-        <% end %>
-      </div>
+      <div class="col-md-4"></div>
+        <div class="col-md-4 users-new-container">
+          <h1 class="text-center text-white">Log in</h1>
+          <%= form_for :session, url: login_path do |f| %>
+            <div class="form-group login-form">
+              <%= f.label :email, class: "text-white text-center" %>
+              <%= f.text_field :email, placeholder:'登録時のアドレスをご入力ください', class: "form-control" %>
+            </div>
+            <div class="form-group login-form">
+              <%= f.label :password, class: "text-white" %>
+              <%= f.password_field :password, placeholder:'登録時のパスワードをご入力ください', class: "form-control" %>
+            </div>
+            <%= f.submit "ログイン", class: "btn-block btn-white" %>
+          <% end %>
+        </div>
+      <div class="col-md-4"></div>
     </div>
   </div>
 </div>

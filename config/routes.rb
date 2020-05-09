@@ -32,4 +32,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get 'users/users/area', to: 'users#area'
 end

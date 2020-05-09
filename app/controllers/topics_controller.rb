@@ -41,15 +41,11 @@ before_action :authenticate_user,{only:[:detail]}
     @topic = Topic.find(params[:id])
     @comment = Comment.new
     @comments = @topic.comments
-      if current_user.blank?
-        redirect_to topics_path, success: 'rouiiiiii'
-      end
   end
 
   def prefecture
     @topic = Topic.find_by(prefecture: params[:prefecture])
   end
-
 
   private
   def topic_params

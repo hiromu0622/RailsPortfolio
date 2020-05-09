@@ -57,6 +57,11 @@
     </nav>
     <div id="page-top-btn"><a class="fa fa-angle-double-up"></a></div>
     <%= yield %>
+    <footer>
+      <div class="row">
+        <div class="col-12 footer">© 2020 全国踏破. All rights reserved.</div>
+      </div>
+    </footer>
     <script>
       $(function(){
         //CRUD処理時に画面上部にポップアップ
@@ -95,14 +100,6 @@
         startPos = winScrollTop;
         });
       });
-
-
-
     </script>
-  <footer>
-    <div class="row">
-      <div class="col-12 footer">© 2020 全国踏破. All rights reserved.</div>
-    </div>
-  </footer>
   </body>
 </html>
