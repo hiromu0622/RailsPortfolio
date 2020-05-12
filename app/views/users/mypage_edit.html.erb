@@ -1,4 +1,4 @@
-<div class="mypage-hero-wrapper row">
+<div class="mypage-hero-wrapper top row">
   <div class="col-md-3"></div>
   <div class="col-md-6 mypage-edit">
     <% if @user.profile_photo.blank? %>
@@ -9,7 +9,7 @@
       <%= form_for :user, url: users_mypage_path do |f| %>
         <div>プロフィール写真の変更</div>
         <div><%= f.file_field :profile_photo %></div>
-        <div class="edit-form"><%= f.label :profile %></div>
+        <div class="edit-form"><%= f.label :profile %><div class="edit-ps">140文字以内</div></div>
         <div><%= f.text_area :profile, placeholder: "ここにあなたのプロフィールを書いてください", class:"edit-profile-form-control" %></div>
         <div class="edit-form"><%= f.label :ユーザー名の変更 %></div>
         <div><%= f.text_field :name, placeholder: "変更したいユーザーネームを入れてください", class:"edit-form-control" %></div>

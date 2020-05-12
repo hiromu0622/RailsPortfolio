@@ -5,7 +5,7 @@
       <div class="col-md-6">
         <h1 class="text-center">新規投稿！</h1>
         <%= form_for @topic do |f| %>
-          <div class="form-group">
+          <div class="form-group bottom">
             <%= f.label :投稿写真 %>
             <%= f.file_field :image%>
           </div>
@@ -19,9 +19,11 @@
           </div>
           <div class="form-group">
             <%= f.label :旅行の思い出 %>
-            <%= f.text_area :description, class: 'form-control' %>
+            <%= f.text_area :description, class: 'form-control form-text' %>
           </div>
-          <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          <div>
+            <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+          </div>
         <% end %>
       </div>
       <div class="col-md-3"></div>

@@ -115,6 +115,11 @@ h2 {
 .form-control {
   height: 45px;
 }
+
+.form-text {
+  height: 190px !important;
+  margin-bottom: 40px;
+}
 .users-new-wrapper {
   width: 100vw;
   height: 100vh;
@@ -183,6 +188,10 @@ h2 {
       height: 30px;
       margin-left: 20px;
     }
+    .topic-index-icon-2 {
+      width: 35px;
+      height: 30px;
+    }
     //いいねがされた場合のハートアイコンの色
     .favorite-color {
       filter: invert(72%) sepia(26%) saturate(6428%) hue-rotate(1deg)
@@ -248,6 +257,14 @@ h2 {
     padding-top: 40px;
     font-size: 20px;
   }
+}
+.edit-ps {
+  position: relative;
+  color: rgb(250, 106, 106);
+  opacity: 0.8;
+  margin-bottom: -20px;
+  top: -38px;
+  right: -26%;
 }
 .mypage-edit:hover .mypage {
   display: inline; /* インライン要素として表示 */
@@ -413,8 +430,17 @@ h2 {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-  /*　画面サイズが480pxからはここを読み込む　*/
+  /*　画面サイズが768pxから1200pxはここを読み込む　*/
   .usertext {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  /*　画面サイズが768px以下はここを読み込む　*/
+  .topics-right {
+    float: none;
+  }
+  #map {
     display: none;
   }
 }
@@ -482,5 +508,6 @@ h2 {
   padding-bottom: 30px;
 }
 .bottom {
-  padding-top: 100px;
+  padding-top: 50px;
+  margin: 10px;
 }
