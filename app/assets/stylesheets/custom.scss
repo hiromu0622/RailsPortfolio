@@ -157,6 +157,12 @@ h2 {
 .topic-new-wrapper {
   padding-top: 100px;
 }
+.image-up {
+  border: solid;
+  width: 100%;
+  border-color: gold;
+  border-radius: 4px;
+}
 .topic-index-wrapper {
   padding-top: 90px;
   background-color: #fafafa;
@@ -258,6 +264,15 @@ h2 {
     font-size: 20px;
   }
 }
+.mypage-edit-link {
+  text-align: center;
+}
+.mypage-status {
+  border: solid;
+  border-color: orange;
+  color: orange;
+  border-radius: 2px;
+}
 .edit-ps {
   position: relative;
   color: rgb(250, 106, 106);
@@ -276,6 +291,13 @@ h2 {
 }
 .mypage-text {
   background-color: rgb(255, 245, 158);
+  border-style: groove;
+  margin-bottom: 10px;
+  width: 90%;
+  border-radius: 5px;
+}
+.mypage-contents {
+  margin-bottom: 0;
 }
 .edit-form-control {
   height: 45px;
@@ -295,6 +317,10 @@ h2 {
 .comments-new-wrapper {
   padding-top: 130px;
   background-color: #fafafa;
+}
+#comment_comment {
+  width: -webkit-fill-available;
+  border-radius: 4px;
 }
 .profile_photo {
   border-radius: 20px !important;
@@ -434,6 +460,9 @@ h2 {
   .usertext {
     display: none;
   }
+}
+#map {
+  width: 90%;
 }
 @media screen and (max-width: 768px) {
   /*　画面サイズが768px以下はここを読み込む　*/

@@ -1,13 +1,12 @@
 <div class="mypage-hero-wrapper">
     <div class="row" >
         <div class="offset-1"></div>
-        <div align="center" class="mypage-edit-link col-md-5">
+        <div align="center" class="col-md-5">
             <% if @user.profile_photo.blank? %>
                 <%= image_tag "icons/profile-icon.png" %>
             <% else %>
                 <%= image_tag @user.profile_photo.url, :size =>'200x200', class:'profile_photo' %>
             <% end %>
-            
             <% if @user.id == current_user.id  %>
                 <p><h4 class="profile-edit fukidashi-icon-edit"><%= link_to 'プロフィール編集', users_mypage_edit_path %></P>
                 <span class="fukidashi-edit">ここからプロフィールの写真、パスワード、メールアドレスの再設定ができるよ</span>
@@ -17,24 +16,29 @@
                 <p>設定したプロフィールが表示されるよ</p>
                 <p>自分のことを書いてPRしてみよう</p>
             <% else %>
-                <p>プロフィール</p>
+                <p class="mypage-contents">プロフィール</p>
                 <div  class="edit-profile-form-control mypage-text" >
                 <%= simple_format(@user.profile) %>
                 </div>
             <% end %>
-            <p>ユーザーネーム</p>
-            <%= @user.name %>
-            <p>メールアドレス</p>
-            <%= @user.email %>
+            <p class="mypage-contents">ユーザーネーム</p>
+            <div  class="mypage-text" >
+                <%= @user.name %>
+            </div>
+            <p class="mypage-contents">メールアドレス</p>
+            <div  class="mypage-text" >
+                <%= @user.email %>
+            </div>
         </div>
             <div class="mypage-edit-link col-md-3">
-                行った県数　<%= @prefectures.size %>/47
-                <div>全国踏破 <%= @prefectures.size.to_i*100/47 %> ％達成</div>
+                <h2 class='mypage-status'>踏破状況</h2>
+                行った県数　<b><%= @prefectures.size %>/47</b>
+                <div>全国踏破 <b><%= @prefectures.size.to_i*100/47 %> ％達成</b></div>
                     目指せ１００％
-                <%= pie_chart @chart, width: "80%", height: "80%", colors: ["orange", "#999"] %>
+                <div class="pie-chart"><%= pie_chart @chart, colors: ["orange", "#999"] %></div>
             </div>
             <div class="mypage-edit-link col-md-2 prefecture-name">
-                <p>今まで行った県</p>
+                <h4>今まで行った県</h4>
                 <% @prefectures.each do |prefecuture| %>
                 <%= simple_format(prefecuture.prefecture_name) %>
                 <% end %>
@@ -129,7 +133,7 @@
         // ];
 
     $.get( "users/area", function(data) {
-    var prefectures = data.prefecture;
+    var prefectures = data;
         $("#map").japanMap(
             {
                 areas  : prefectures, //上で設定したエリアの情報
@@ -149,7 +153,7 @@
                 
                 onSelect : function(data){
                     location.href = areaLinks[data.area.code];
-                        },
+                },
             }
         );
     });

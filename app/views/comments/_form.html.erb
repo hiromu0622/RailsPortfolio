@@ -1,6 +1,6 @@
 <%= form_with(model: [topic, comment] ) do |form| %>
-  <div>
-    <%= form.text_area :comment %>
+  <div class="comments-area">
+    <%= form.text_area :comment, placeholder: "ここにコメント内容を書いてください" %>
   </div>
   <div class="actions">
     <%= form.submit "コメントをする" %>
