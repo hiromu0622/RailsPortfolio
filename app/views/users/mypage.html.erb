@@ -30,24 +30,24 @@
                 <%= @user.email %>
             </div>
         </div>
-            <div class="mypage-edit-link col-md-3">
-                <h2 class='mypage-status'>踏破状況</h2>
-                行った県数　<b><%= @prefectures.size %>/47</b>
-                <div>全国踏破 <b><%= @prefectures.size.to_i*100/47 %> ％達成</b></div>
-                    目指せ１００％
-                <div class="pie-chart"><%= pie_chart @chart, colors: ["orange", "#999"] %></div>
-            </div>
-            <div class="mypage-edit-link col-md-2 prefecture-name">
-                <h4>今まで行った県</h4>
-                <% @prefectures.each do |prefecuture| %>
-                <%= simple_format(prefecuture.prefecture_name) %>
-                <% end %>
-            </div>
-            <%# jQueryコードがbootstrap内だと一部機能しない問題 %>
+        <div class="mypage-edit-link col-md-3">
+            <h2 class='mypage-status'>踏破状況</h2>
+            行った県数　<b><%= @prefectures.size %>/47</b>
+            <div>全国踏破 <b><%= @prefectures.size.to_i*100/47 %> ％達成</b></div>
+                目指せ１００％
+            <div class="pie-chart"><%= pie_chart @chart, colors: ["#ff943c", "#b5b5b5"] %></div>
+        </div>
+        <div class="mypage-edit-link col-md-2 prefecture-name">
+            <h4>今まで行った県</h4>
+            <% @prefectures.each do |prefecuture| %>
+            <%= simple_format(prefecuture.prefecture_name) %>
+            <% end %>
+        </div>
+        <%# jQueryコードがbootstrap内だと一部機能しない問題 %>
     </div>
     <div row >
-        <div class="offset-1"></div>
-        <div align="center" id="map"></div>
+        <div class="offset-1 map-info"><p>投稿した県の色が変わるよ！</p></div>
+        <div class="col-md-10" align="center" id="map"></div>
         <div class="offset-1"></div>
     </div>
 </div>
@@ -67,71 +67,6 @@
             9:"<%= users_mypage_url %>",
             10:"<%= topics_url %>"
             };
-        //地域を設定
-        //{"code":[地域のコード], "name": [地域の名前], "color":[地域につける色], "hoverColor":[地域をマウスでホバーしたときの色], "prefectures":[地域に含まれる都道府県のコード]}
-        // var areas = [
-        //     {"code": 1 , "name":"北海道地方", "color":"#ca93ea", "hoverColor":"#e0b1fb", "prefectures":[1]},
-        //     {"code": 2 , "name":"東北地方",   "color":"#a7a5ea", "hoverColor":"#d6d4fd", "prefectures":[2,3,4,5,6,7]},
-        //     {"code": 3 , "name":"関東地方",   "color":"#84b0f6", "hoverColor":"#c1d8fd", "prefectures":[8,9,10,11,12,13,14]},
-        //     {"code": 4 , "name":"北陸・甲信越地方",   "color":"#52d49c", "hoverColor":"#93ecc5", "prefectures":[15,16,17,18,19,20]},
-        //     {"code": 4 , "name":"東海地方",   "color":"#77e18e", "hoverColor":"#aff9bf", "prefectures":[21,22,23,24]},
-        //     {"code": 6 , "name":"近畿地方",   "color":"#f2db7b", "hoverColor":"#f6e8ac", "prefectures":[25,26,27,28,29,30]},
-        //     {"code": 7 , "name":"中国地方",   "color":"#f9ca6c", "hoverColor":"#ffe5b0", "prefectures":[31,32,33,34,35]},
-        //     {"code": 8 , "name":"四国地方",   "color":"#fbad8b", "hoverColor":"#ffd7c5", "prefectures":[36,37,38,39]},
-        //     {"code": 9 , "name":"九州地方",   "color":"#f7a6a6", "hoverColor":"#ffcece", "prefectures":[40,41,42,43,44,45,46]},
-        //     {"code":10 , "name":"沖縄地方",   "color":"#ea89c4", "hoverColor":"#fdcae9", "prefectures":[47]}
-        // ];
-
-        // var prefectures = [
-        //     {code : 1, name: "北海道", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [1]},
-        //     {code : 2, name: "青森", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [2]},
-        //     {code : 3, name: "岩手", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [3]},
-        //     {code : 4, name: "宮城", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [4]},
-        //     {code : 5, name: "秋田", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [5]},
-        //     {code : 6, name: "山形", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [6]},
-        //     {code : 7, name: "福島", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [7]},
-        //     {code : 8, name: "茨城", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [8]},
-        //     {code : 9, name: "栃木", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [9]},
-        //     {code : 10, name: "群馬", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [10]},
-        //     {code : 11, name: "埼玉", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [11]},
-        //     {code : 12, name: "千葉", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [12]},
-        //     {code : 13, name: "東京", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [13]},
-        //     {code : 14, name: "神奈川", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [14]},
-        //     {code : 15, name: "新潟", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [15]},
-        //     {code : 16, name: "富山", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [16]},
-        //     {code : 17, name: "石川", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [17]},
-        //     {code : 18, name: "福井", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [18]},
-        //     {code : 19, name: "山梨", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [19]},
-        //     {code : 20, name: "長野", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [20]},
-        //     {code : 21, name: "岐阜", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [21]},
-        //     {code : 22, name: "静岡", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [22]},
-        //     {code : 23, name: "愛知", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [23]},
-        //     {code : 24, name: "三重", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [24]},
-        //     {code : 25, name: "滋賀", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [25]},
-        //     {code : 26, name: "京都", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [26]},
-        //     {code : 27, name: "大阪", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [27]},
-        //     {code : 28, name: "兵庫", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [28]},
-        //     {code : 29, name: "奈良", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [29]},
-        //     {code : 30, name: "和歌山", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [30]},
-        //     {code : 31, name: "鳥取", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [31]},
-        //     {code : 32, name: "島根", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [32]},
-        //     {code : 33, name: "岡山", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [33]},
-        //     {code : 34, name: "広島", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [34]},
-        //     {code : 35, name: "山口", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [35]},
-        //     {code : 36, name: "徳島", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [36]},
-        //     {code : 37, name: "香川", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [37]},
-        //     {code : 38, name: "愛媛", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [38]},
-        //     {code : 39, name: "高知", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [39]},
-        //     {code : 40, name: "福岡", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [40]},
-        //     {code : 41, name: "佐賀", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [41]},
-        //     {code : 42, name: "長崎", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [42]},
-        //     {code : 43, name: "熊本", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [43]},
-        //     {code : 44, name: "大分", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [44]},
-        //     {code : 45, name: "宮崎", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [45]},
-        //     {code : 46, name: "鹿児島", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [46]},
-        //     {code : 47, name: "沖縄", color: "#a0a0a0", hoverColor: "#ff943c", prefectures: [47]},
-        // ];
-
     $.get( "users/area", function(data) {
     var prefectures = data;
         $("#map").japanMap(
@@ -144,16 +79,16 @@
                 movesIslands : true, //南西諸島を左上に移動させるときはtrue、移動させないときはfalse
                 showsAreaName : false, //エリア名を表示しない場合はfalse
                 showsPrefectureName: true,　//県名の表示
-                width: 1000, //canvasのwidth。別途heightも指定可。
+                width: 800, //canvasのwidth。別途heightも指定可。
                 backgroundColor: "#ffffff", //canvasの背景色
                 font : "MS Mincho", //地図に表示する文字のフォント
                 fontSize : 10, //地図に表示する文字のサイズ
                 fontColor : "areaColor", //地図に表示する文字の色。"areaColor"でエリアの色に合わせる
                 fontShadowColor : "white", //地図に表示する文字の影の色
                 
-                onSelect : function(data){
-                    location.href = areaLinks[data.area.code];
-                },
+                // onSelect : function(data){
+                    // location.href = areaLinks[data.area.code];
+                // },
             }
         );
     });

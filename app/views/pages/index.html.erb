@@ -18,29 +18,10 @@
   <div class="top-hero-m-wrapper box">
     <div class="row">
       <div class="col-sm-5">
-        <span align="middle">日本は四季に恵まれとても綺麗な景色があります。</span>
+        <p class="spring">春</p>
+        <p class="season season1">日本は四季に恵まれとても綺麗な景色があります。春は桜の季節 お花見や旅行に出掛けてはいかがでしょうか？</p>
       </div>
       <div class="col-sm-7">
-        <span><%= image_tag "aki.jpg", class:'top-2' %></span>
-      </div>
-    </div>
-  </div>
-  <div class="top-hero-l-wrapper box2">
-    <div class="row">
-      <div class="col-sm-7 ">
-        <span><%= image_tag "snow.jpg", class:'top-2' %></span>
-      </div>
-      <div class="col-sm-5">
-        <p>日本は四季に恵まれとても綺麗な景色があります。</p>
-      </div>
-    </div>
-  </div>
-  <div class="top-hero-l-wrapper box">
-    <div class="row">
-      <div class="col-sm-5">
-        <p>日本は四季に恵まれとても綺麗な景色があります。</p>
-      </div>
-      <div class="col-sm-7 ">
         <span><%= image_tag "sakura.jpg", class:'top-2' %></span>
       </div>
     </div>
@@ -51,7 +32,30 @@
         <span><%= image_tag "kawa.jpg", class:'top-2' %></span>
       </div>
       <div class="col-sm-5">
-        <p>日本は四季に恵まれとても綺麗な景色があります。</p>
+        <p class="summer">夏</p>
+        <p class="season season2">梅雨を開けると季節は夏　気温とともに気分が上がる　海に山に花火にイベント目白押し</p>
+      </div>
+    </div>
+  </div>
+  <div class="top-hero-l-wrapper box">
+    <div class="row">
+      <div class="col-sm-5">
+        <p class="fall">秋</p>
+        <p class="season season3">紅葉シーズン　気温も過ごしやすく登山に最適　樹木が色鮮やかに色づく自然を感じに出掛けてみては　</p>
+      </div>
+      <div class="col-sm-7 ">
+        <span><%= image_tag "aki.jpg", class:'top-2' %></span>
+      </div>
+    </div>
+  </div>
+  <div class="top-hero-l-wrapper box2">
+    <div class="row">
+      <div class="col-sm-7 ">
+        <span><%= image_tag "snow.jpg", class:'top-2' %></span>
+      </div>
+      <div class="col-sm-5">
+      <p class="winter">冬</p>
+        <p class="season season4">冬といえば雪　冷えた体を幻想的な雪景色に囲まれた温泉で温まりながら眺めてみてはいかがでしょうか</p>
       </div>
     </div>
   </div>
@@ -76,10 +80,10 @@
               </div>
             </li>
             <li class="faq-list-item">
-              <h3 class="question">質問３？</h3>
+              <h3 class="question">ユーザー登録しないと利用できませんか？</h3>
               <span>➕</span>
               <div class="answer">
-                <p>答え３</p>
+                <p>ユーザー登録をしなくてもみんなの投稿を確認できます。他の機能が使いたい場合は新規登録の方をお願いします。</p>
               </div>
             </li>
           </ul>
@@ -88,28 +92,26 @@
     <div class="col-md-2"></div>
   </div>
   <div class="top-hero-b-wrapper">
-  <div class="row">
-    <div class="col-2"></div>
-      <div class="col-4">
+    <div class="row">
+      <div class="col-2"></div>
+        <div class="col-4">
           <div class="balloon-right">日本のいいところをどんどんシェアして行こう！！
             <div><b>めざせ１００％踏破</b></div>
           </div>
-      </div>
-      <div class="col-4">
-          <span><%= image_tag "icons/character.png", class:'chara' %></span>
-      </div>
-    <div class="col-2"></div>
-    <div class="col-12", text-align="center"><%= link_to '試しにみんなの投稿を見てみる', topics_path %></div>
-  </div>
+        </div>
+        <div class="col-4">
+            <span><%= image_tag "icons/character.png", class:'chara' %></span>
+        </div>
+      <div class="col-2"></div>
+      <div class="col-2"></div>
+      <div class="col-8 test-view"><%= link_to '試しにみんなの投稿を見てみる', topics_path %></div>
+      <div class="col-2"></div>
+    </div>
   </div>
 </div>
 
 <%# jQueryを使ってスクロール時にフェードインを実装 %>
 <script>
-  // var window_h = $(window).height();
-  // $("#wh span").text(window_h);
-  //スクロールイベント
-
   //良くある質問のアコーディオン表示
 $('.faq-list-item').click(function() {
     var $answer = $(this).find('.answer');

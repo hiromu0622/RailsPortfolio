@@ -2,6 +2,9 @@ h1,
 h2 {
   font-weight: 100;
 }
+body {
+  font-family: "arial unicode ms";
+}
 
 .text-white {
   color: rgb(255, 255, 255);
@@ -10,7 +13,6 @@ h2 {
   -webkit-text-stroke: 1px #ff943c;
   // text-stroke: 1.5px#ff943c;
   text-shadow: -1px -2px 3px #808080;
-  font-family: Hiragino Maru Gothic Pro;
 }
 .btn-index {
   position: relative;
@@ -126,7 +128,6 @@ h2 {
   background-image: url("rogin-back.png");
   background-size: 100% 100%;
   background-blend-mode: lighten;
-  // position: absolute;
   top: 0;
   .users-new-container {
     padding-top: 120px;
@@ -211,7 +212,7 @@ h2 {
   z-index: 10; /* 要素を非表示 */
   // padding: 2px;                         /* テキストの前後の余白 */
   background-color: rgba(255, 202, 87, 0.836); /* 背景色（透明度） */
-  // width:100%;                          /* 吹き出し全体の幅 */
+  // width: 100%; /* 吹き出し全体の幅 */
   border-radius: 6px;
   top: -30px;
   left: 20px;
@@ -233,7 +234,7 @@ h2 {
   width: 100%; /* 吹き出し全体の幅 */
   border-radius: 6px;
   top: -70px;
-  left: 220px;
+  left: 120px;
   font-size: 70%;
 }
 .fukidashi-icon-edit {
@@ -278,8 +279,9 @@ h2 {
   color: rgb(250, 106, 106);
   opacity: 0.8;
   margin-bottom: -20px;
-  top: -38px;
+  top: -60px;
   right: -26%;
+  font-size: 0.8rem;
 }
 .mypage-edit:hover .mypage {
   display: inline; /* インライン要素として表示 */
@@ -290,7 +292,7 @@ h2 {
   border-radius: 5px;
 }
 .mypage-text {
-  background-color: rgb(255, 245, 158);
+  background-color: #ffd77e;
   border-style: groove;
   margin-bottom: 10px;
   width: 90%;
@@ -314,6 +316,34 @@ h2 {
   left: 0px;
   font-size: 80%;
 }
+.map-info {
+  text-align: center;
+  position: relative;
+  margin: 1.5em 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  background: #ff943c;
+  border-radius: 15px;
+}
+
+.map-info:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px;
+  border: 15px solid transparent;
+  border-top: 15px solid #ff943c;
+}
+
+.map p {
+  margin: 0;
+  padding: 0;
+}
+
 .comments-new-wrapper {
   padding-top: 130px;
   background-color: #fafafa;
@@ -344,13 +374,11 @@ h2 {
   transform: translateY(-100%);
 }
 .box {
-  // background-color:#ffff00;
   transform: translate(-250px, -150px);
   opacity: 0.2;
   transition: opacity 2.5s, transform 2.5s;
 }
 .box2 {
-  // background-color:#4c00ff;
   transform: translate(250px, -150px);
   opacity: 0.2;
   transition: opacity 3s, transform 1.5s;
@@ -362,7 +390,6 @@ h2 {
 
 .topics-right {
   float: right;
-  // padding-right: 20px;
 }
 .test-padding {
   padding-top: 190px;
@@ -435,9 +462,6 @@ h2 {
   text-decoration: none;
 }
 #page-top-btn a::before {
-  // font-family: 'Font Awesome 5 Free';
-  // font-weight: 900;
-  // content: '\angle-double-up';
   font-size: 25px;
   color: #fff;
   position: absolute;
@@ -470,6 +494,9 @@ h2 {
     float: none;
   }
   #map {
+    display: none;
+  }
+  .map-info {
     display: none;
   }
 }
@@ -539,4 +566,51 @@ h2 {
 .bottom {
   padding-top: 50px;
   margin: 10px;
+}
+.season {
+  // display: block;
+  // text-align: center;
+  font-size: 2rem;
+  // padding-left: 20px;
+}
+.spring {
+  font-size: 70px;
+  color: deeppink;
+  margin-left: 15px;
+  margin-bottom: 0px;
+}
+.season1 {
+  color: pink;
+  padding-left: 20px;
+}
+.summer {
+  font-size: 70px;
+  color: green;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+.season2 {
+  color: lightgreen;
+}
+.fall {
+  font-size: 70px;
+  color: red;
+  margin-left: 15px;
+  margin-bottom: 0px;
+}
+.season3 {
+  color: orangered;
+  padding-left: 20px;
+}
+.winter {
+  font-size: 70px;
+  color: lightgray;
+  margin-bottom: 0px;
+}
+.test-view {
+  text-align: center;
+  margin-top: 70px;
+  font-size: 30px;
+  background-color: #f9ea36;
+  border-radius: 15%;
 }

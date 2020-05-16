@@ -13,9 +13,9 @@
         <div><%= f.text_area :profile, placeholder: "ここにあなたのプロフィールを書いてください", class:"edit-profile-form-control" %></div>
         <div class="edit-form"><%= f.label :ユーザー名の変更 %><div class="edit-ps">10文字以内</div></div>
         <div><%= f.text_field :name, placeholder: "変更したいユーザーネームを入れてください", class:"edit-form-control" %></div>
-        <div class="edit-form"><%= f.label :メールアドレスの変更 %><div class="edit-ps">140文字以内</div></div>
+        <div class="edit-form"><%= f.label :メールアドレスの変更 %></div>
         <div><%= f.text_field :email, placeholder: "変更したいメールアドレスを入れてください", class:"edit-form-control" %></div>
-        <div class="edit-form"><%= f.label :パスワードの変更 %></div>
+        <div class="edit-form"><%= f.label :パスワードの変更 %><div class="edit-ps">英数字各1文字以上</div></div>
         <div><%= f.text_field :password, placeholder: "変更したいパスワードを入れてください", class:"edit-form-control" %></div>
         <div class="edit-form"><%= f.label :パスワードの確認 %></div>
         <div><%= f.text_field :password_confirmation, placeholder: "確認のため先ほどのパスワードを入力してください", class:"edit-form-control" %></div>
