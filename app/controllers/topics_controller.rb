@@ -34,7 +34,20 @@ before_action :authenticate_user,{only:[:detail]}
     # @topic = Topic.find(params[:id])
     @comment = Comment.new
     @comments = @topic.comments
+  end
 
+  def edit
+    @topic = Topic.find_by(id: params[:topic_id])
+  end
+  def update
+    @topic = Topic.find_by(id: params[:id])
+    # binding.pry
+    if @topic.update(topic_params)
+      redirect_to topics_path, success: '更新しました'
+    else
+      flash.now[:danger] = "更新に失敗しました"
+      render :topic_edit
+    end
   end
 
   def show

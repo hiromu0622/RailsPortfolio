@@ -35,12 +35,12 @@
               <% end %>
             <% end %>
             <%= @topic.favorite_users.count %>
-            <%= link_to comments_new_path(topic_id: @topic.id), class: 'fukidashi-icon' do %>
+            <%= link_to topics_detail_path(topic_id: @topic.id), class: 'fukidashi-icon' do %>
               <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
               <span class="fukidashi">コメントを投稿する</span>
             <% end %>
             <% if @topic.user_id == current_user.id %>
-              <%= link_to comments_new_path(topic_id: @topic.id), class: 'fukidashi-icon' do %>
+              <%= link_to topics_edit_path(topic_id: @topic.id), class: 'fukidashi-icon' do %>
                 <%= image_tag 'icons/edit.png', class: 'topic-index-icon' %>
                 <span class="fukidashi">投稿を編集する</span>
               <% end %>

@@ -15,11 +15,6 @@ class UsersController < ApplicationController
   end
 
   def mypage
-      # 配列の場合
-        # @chart = [['行った県', @prefectures.count], ['行ってない県', 20]]
-      # ハッシュの場合
-        # @chart = {"国語" => 10, "算数" => 20, "理科"　=> 30, "社会" => 40}
-
     if params[:user_id].present?
       @user = User.find(params[:user_id])
       @usertopics = Topic.where(user_id: params[:user_id])
@@ -35,7 +30,6 @@ class UsersController < ApplicationController
       @chart = [['行った県', @prefectures.count], ['行ってない県', 47-@prefectures.count]]
 
     end
-    # @userprefectures.prefecture = @usertopics.prefecture
   end
 
   def area
@@ -100,7 +94,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: current_user.id)
   end
   def mypage_edit_update
-    @user= User.find_by(id: current_user.id)
+    @user = User.find_by(id: current_user.id)
     # binding.pry
     if @user.update(user_edit_params)
     redirect_to users_mypage_path, success: '更新しました'

@@ -44,7 +44,7 @@
             <% end %>
             <% if current_user.blank? %>
             <% elsif topic.user_id == current_user.id %>
-              <%= link_to comments_new_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
+              <%= link_to topics_edit_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
                 <%= image_tag 'icons/edit.png', class: 'topic-index-icon' %>
                 <span class="fukidashi">投稿を編集する</span>
               <% end %>
