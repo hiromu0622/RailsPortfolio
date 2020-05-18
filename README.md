@@ -1,5 +1,6 @@
 ## 日本全国踏破
-これは『日本全国踏破』というタイトルの旅系SNSです。
+
+これは『日本全国踏破』というタイトルの旅系 SNS です。
 
 旅行に行った際の綺麗な風景や思い出の写真を、行った県とともに記録してきます。
 
@@ -9,9 +10,23 @@
 
 そんな中で自分の日記がわり、ゲーム感覚で４７つの都道府県を制覇し、旅好きの人とも情報を共有してしまおう！と言う趣旨のサービスです。
 
-
-・実装機能
+・実装機能・技術
+CRUD 機能
+プラットフォーム（AWS ElasticBeanstalk）
+データベース（MySQL）
+CSS フレームワーク（Bootstrap4）
+ユーザー登録＆ログイン
+画像アップロード（carrierwave、mini_magick）
+レビュー（jquery.raty）
+いいね機能
+コメント機能（Ajax）
+日本地図の描写（JapanMap 　 jQuery)
+レスポンシブデザイン
 
 ・開発環境
+ruby 2.7.0p0
+Rails 5.2.4.1
 
-ページサンプル画像
+・ページサンプル画像
+<img width="1280" alt="スクリーンショット 2020-05-18 22 23 58" src="https://user-images.githubusercontent.com/57628172/82218823-6e4d8500-9957-11ea-9e03-1ea2d7f56a7f.png">
+<img width="1280" alt="スクリーンショット 2020-05-18 22 24 28" src="https://user-images.githubusercontent.com/57628172/82218913-90df9e00-9957-11ea-9a63-2086bccf37d6.png">
