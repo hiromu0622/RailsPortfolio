@@ -46,7 +46,8 @@ before_action :authenticate_user,{only:[:detail]}
       redirect_to topics_path, success: '更新しました'
     else
       flash.now[:danger] = "更新に失敗しました"
-      render :topic_edit
+      render :edit
+      # redirect_to topics_edit_path
     end
   end
 

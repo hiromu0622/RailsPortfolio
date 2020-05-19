@@ -1,77 +1,87 @@
 <div class="topic-index-wrapper">
   <div class="container">
-  <h4 class="topic-author">貴方の投稿</h4>
-    <% @topics.each do |topic| %>
-      <div class="row">
-      <div class="col-lg-2"></div>
-        <div class="col-lg-8">
-          <div class="topic-index-single">
-            <div class="topic-author">
-              <% if topic.user.profile_photo.blank?  %>
-                <%= image_tag "icons/profile-icon.png", class:"profile_photo_mini" %>
+    <h4 class="topic-author", style="text-align:center" >貴方の投稿</h4>
+    <% if @topics.blank? %>
+      <div class ="topic-blank">
+        <p>まだあなたの投稿はありません</p>
+        <p>↓　新規投稿してみましょう　↓</p>　
+        <%= link_to topics_new_path do %>
+          <%= image_tag "topic-blank" %>
+        <% end %>
+      </div>
+    <% else %>
+      <% @topics.each do |topic| %>
+        <div class="row">
+        <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <div class="topic-index-single">
+              <div class="topic-author">
+                <% if topic.user.profile_photo.blank?  %>
+                  <%= image_tag "icons/profile-icon.png", class:"profile_photo_mini" %>
+                <% else %>
+                  <%= image_tag topic.user.profile_photo.url, class:"profile_photo_mini" %>
+                <% end %>
+                <%= link_to users_mypage_path(user_id: topic.user.id) do %>
+                  <%= topic.user&.name %>さんの投稿
+                <% end %>
+                <div class="topics-right">
+                <%= image_tag 'icons/date.png', class: 'topic-index-icon-2' %>
+                投稿時間<%= l topic.created_at %>
+                </div>
+              </div>
+              <div class="topic-author">
+                タイトル <b><%= topic.title %></b>
+                <div class="topics-right">行った県名   <b><%= topic.prefecture_name %></b></div>
+              </div>
+              <%= link_to topics_detail_path(topic_id: topic.id) do %>
+                <%= image_tag topic.image.url,:size => '600x600' %>
+              <% end %>
+              <% if !topic.favorite_users.include?(current_user) %>
+                <%= link_to favorites_path(topic_id: topic.id),  method: :post, class: 'fukidashi-icon' do %>
+                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+                  <span class="fukidashi">いいねする</span>
+                <% end %>
               <% else %>
-                <%= image_tag topic.user.profile_photo.url, class:"profile_photo_mini" %>
+                <%= link_to favorites_path(topic_id: topic.id), method: :delete, class: 'fukidashi-icon' do %>
+                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon favorite-color' %>
+                  <span class="fukidashi">いいねを外す</span>
+                <% end %>
               <% end %>
-              <%= link_to users_mypage_path(user_id: topic.user.id) do %>
-                <%= topic.user&.name %>さんの投稿
+              <%= topic.favorite_users.count %>
+              <%= link_to topics_detail_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
+                <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+                <span class="fukidashi">コメントを投稿する</span>
               <% end %>
-              <div class="topics-right">
-              <%= image_tag 'icons/date.png', class: 'topic-index-icon-2' %>
-              投稿時間<%= l topic.created_at %>
+              <% if current_user.blank? %>
+              <% elsif topic.user_id == current_user.id %>
+                <%= link_to topics_edit_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
+                  <%= image_tag 'icons/edit.png', class: 'topic-index-icon' %>
+                  <span class="fukidashi">投稿を編集する</span>
+                <% end %>
+                <%= link_to topic_path(topic.id), method: :delete, class: 'fukidashi-icon' ,data: {confirm: "本当に削除しますか？"} do %>
+                  <%= image_tag 'icons/delete2.png', class: 'topic-index-icon' %>
+                  <span class="fukidashi">トピックを削除する</span>
+                <% end %>
+              <% end %>
+              <div class="topic-author">
+                <p><%= simple_format(topic.description.truncate(30)) %></p>
+                <p>コメント</p>
+                <% topic.comments.each do |comment| %>
+                  <%= link_to users_mypage_path(user_id: comment.user.id) do %>
+                    <p><%= comment.user&.name %>さん
+                  <% end %>
+                  <%= comment.comment.truncate(15) %>
+                    <% if comment.comment.length >= 15  %>
+                      <%= link_to topics_detail_path(topic_id: topic.id) do %>続きを見る<%end%></p>
+                    <% end %>
+                <% end %>
+                <% form_tag %>
               </div>
             </div>
-            <div class="topic-author">
-              タイトル <b><%= topic.title %></b>
-              <div class="topics-right">行った県名   <b><%= topic.prefecture_name %></b></div>
-            </div>
-            <%= link_to topics_detail_path(topic_id: topic.id) do %>
-              <%= image_tag topic.image.url,:size => '600x600' %>
-            <% end %>
-            <% if !topic.favorite_users.include?(current_user) %>
-              <%= link_to favorites_path(topic_id: topic.id),  method: :post, class: 'fukidashi-icon' do %>
-                <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
-                <span class="fukidashi">いいねする</span>
-              <% end %>
-            <% else %>
-              <%= link_to favorites_path(topic_id: topic.id), method: :delete, class: 'fukidashi-icon' do %>
-                <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon favorite-color' %>
-                <span class="fukidashi">いいねを外す</span>
-              <% end %>
-            <% end %>
-            <%= topic.favorite_users.count %>
-            <%= link_to comments_new_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
-              <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
-              <span class="fukidashi">コメントを投稿する</span>
-            <% end %>
-            <% if current_user.blank? %>
-            <% elsif topic.user_id == current_user.id %>
-              <%= link_to comments_new_path(topic_id: topic.id), class: 'fukidashi-icon' do %>
-                <%= image_tag 'icons/edit.png', class: 'topic-index-icon' %>
-                <span class="fukidashi">投稿を編集する</span>
-              <% end %>
-              <%= link_to topic_path(topic.id), method: :delete, class: 'fukidashi-icon' ,data: {confirm: "本当に削除しますか？"} do %>
-                <%= image_tag 'icons/delete2.png', class: 'topic-index-icon' %>
-                <span class="fukidashi">トピックを削除する</span>
-              <% end %>
-            <% end %>
-            <div class="topic-author">
-              <p><%= simple_format(topic.description.truncate(30)) %></p>
-              <p>コメント</p>
-              <% topic.comments.each do |comment| %>
-                <%= link_to users_mypage_path(user_id: comment.user.id) do %>
-                  <p><%= comment.user&.name %>さん
-                <% end %>
-                <%= comment.comment.truncate(15) %>
-                  <% if comment.comment.length >= 15  %>
-                    <%= link_to topics_detail_path(topic_id: topic.id) do %>続きを見る<%end%></p>
-                  <% end %>
-              <% end %>
-              <% form_tag %>
-            </div>
           </div>
+          <div class="col-lg-2"></div>
         </div>
-        <div class="col-lg-2"></div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

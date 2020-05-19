@@ -40,7 +40,7 @@
             <% else %>
               <%= image_tag current_user.profile_photo.url, class:"profile_photo_mini" %>
             <% end %>
-            <span class="user-name"><%= current_user.name %></span>さん ようこそ
+            <span class="user-name"><%= current_user.name %></span><span class="user-name2">さん ようこそ</span>
             <span class="user-name">全国 <%= prefecture_clear.size %> /47 踏破！！</span></p>
               <%= link_to logout_path, method: :delete, data: {confirm: "本当にログアウトしますか？"} do %>
                 <li class='btn nav-btn fukidashi-icon'>
