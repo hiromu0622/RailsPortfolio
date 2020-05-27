@@ -11,10 +11,11 @@ def validate_name
 end
   mount_uploader :profile_photo, ImageUploader
 
-  validates :name, presence: true, on: :create
-  validates :email, presence: true, on: :create
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :name, presence: true, length:{in: 4..10}, uniqueness: true, on: :create
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }, on: :create
   # ユーザー情報編集時のバリデーション
-  validates :name, length:{maximum: 10}, allow_nil: true, on: :mypage_edit_update
+  validates :name, length:{in: 4..10}, allow_nil: true, on: :mypage_edit_update
 
   has_secure_password
 
