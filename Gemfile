@@ -73,3 +73,4 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'jcanvas-rails', '~> 0.1.0'
 gem 'chartkick'
 gem 'chartable'
+gem "activesupport", ">= 5.2.4.3"
