@@ -54,7 +54,10 @@
               <% end %>
             <% end %>
             <div class="topic-author">
-              <p><%= simple_format(topic.description.truncate(30)) %></p>
+              <%= simple_format(topic.description.truncate(30)) %>
+              <% if topic.description.length >= 30 %>
+                <%= link_to topics_detail_path(topic_id: topic.id) do %>続きを見る<% end %>
+              <% end %>
               <p>コメント</p>
               <% topic.comments.each do |comment| %>
                 <%= link_to users_mypage_path(user_id: comment.user.id) do %>

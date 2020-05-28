@@ -76,9 +76,13 @@ Rails 5.2.4.1
 
 テストユーザーとしてこちらでお試しください
 
-#### Email test
+#### Email
 
-#### Password test
+test@test.com
+
+#### Password
+
+test
 
 また、登録しなくても投稿閲覧だけであれば top ページ最下部『みんなの投稿を見てみる』からアクセスできます
 
