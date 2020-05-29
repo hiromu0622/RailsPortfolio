@@ -11,7 +11,7 @@ default: &default
   adapter: mysql2
   database: JapanComplete
   username: root
-  password:
+  password: U/zWHy5.cp4Ww
   host: 127.0.0.1
   encoding: utf8
 
