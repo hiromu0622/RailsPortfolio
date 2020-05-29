@@ -11,7 +11,7 @@ default: &default
   adapter: mysql2
   database: JapanComplete
   username: root
-  password:
+  password: U/zWHy5.cp4Ww
   host: 127.0.0.1
   encoding: utf8
 
@@ -29,3 +29,6 @@ test:
 production:
   <<: *default
   # database: db/production.sqlite3
+database: JapanComplete
+username: root
+password: U/zWHy5.cp4Ww

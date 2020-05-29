@@ -74,3 +74,6 @@ gem 'jcanvas-rails', '~> 0.1.0'
 gem 'chartkick'
 gem 'chartable'
 gem "activesupport", ">= 5.2.4.3"
+group :production, :staging do
+  gem 'unicorn'
+end
