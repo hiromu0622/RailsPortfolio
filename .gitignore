@@ -29,3 +29,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# 以下アドバイスによりgitに載せないことにする
+.ruby-version
+config.ru
+Gemfile
+Gemfile.lock
+package.json
+Rakefile
